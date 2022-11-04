@@ -11,6 +11,10 @@ namespace TowerDefense_TheRPG {
     private string storyLine;
     private int curStoryLineIndex;
     private Random rand;
+    private int currlevel = 0;
+    private int enemyCount;
+    private int enemyMax;
+    private bool spawnEnemy = false;
     #endregion
 
     #region Methods
@@ -36,26 +40,42 @@ namespace TowerDefense_TheRPG {
         tmrTextCrawl.Enabled = false;
       }
     }
-    private void tmrSpawnEnemies_Tick(object sender, EventArgs e) {
-      GenEnemyPos(out int x, out int y);
-      int enemyType = rand.Next(4);
-      Enemy balloon;
-      switch (enemyType) {
-        case 0:
-          balloon = Enemy.MakeRedBalloon(x, y);
-          break;
-        case 1:
-          balloon = Enemy.MakePurpleBalloon(x, y);
-          break;
-        case 2:
-          balloon = Enemy.MakeGrayBalloon(x, y);
-          break;
-        default:
-          balloon = Enemy.MakeOrangeBalloon(x, y);
-          break;
+    private void level()
+    {
+        currlevel++;
+        enemyMax = 5 * currlevel;
+        enemyCount = 0;
 
-      }
-      enemies.Add(balloon);
+        while (enemyCount < enemyMax)
+        {
+            spawnEnemy = true;
+        }
+        spawnEnemy = false;
+    }
+    private void tmrSpawnEnemies_Tick(object sender, EventArgs e) {
+        if (spawnEnemy)
+        {
+            GenEnemyPos(out int x, out int y);
+            int enemyType = rand.Next(4);
+            Enemy balloon;
+            switch (enemyType)
+            {
+                case 0:
+                    balloon = Enemy.MakeRedBalloon(x, y);
+                    break;
+                case 1:
+                    balloon = Enemy.MakePurpleBalloon(x, y);
+                    break;
+                case 2:
+                    balloon = Enemy.MakeGrayBalloon(x, y);
+                    break;
+                default:
+                    balloon = Enemy.MakeOrangeBalloon(x, y);
+                    break;
+            }
+            enemies.Add(balloon);
+            enemyCount++;
+        }
     }
     private void tmrMoveEnemies_Tick(object sender, EventArgs e) {
       MoveEnemies();
@@ -90,6 +110,7 @@ namespace TowerDefense_TheRPG {
       tmrMoveEnemies.Enabled = true;
       tmrMoveArrows.Enabled = true;
       tmrTextCrawl.Enabled = false;
+      
 
       // TODO: setting the background image here causes visual defects as enemies and player move
       //       around the screen. Consider either fixing these defects or setting BackgroundImage to null
@@ -99,6 +120,8 @@ namespace TowerDefense_TheRPG {
       // otherwise, for whatever reason, the start button retains focus (even when enabled = false)
       // and arrow key presses are ignored and won't move player.
       Focus();
+
+      //level();
     }
     private void btnStoryLine_Click(object sender, EventArgs e) {
       if (btnStoryLine.Text.StartsWith("Show")) {
