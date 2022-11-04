@@ -128,7 +128,7 @@ namespace TowerDefense_TheRPG {
     private void Storyline() {
       // TODO: probably should be read from a resource text file
       storyLine = "Ok, you want a story line, here it is. Once upon a time, there was this village. ";
-      storyLine += "In this village were towers. These were great times where towers could roam around, ";
+      storyLine += "In this village we're towers. These were great times where towers could roam around, ";
       storyLine += "free of their nature predator..... the balloon! One day, dark clouds appeared in the sky. ";
       storyLine += "It looked like M Night Shamaleon was creating another movie. Then, something strange happened! ";
       storyLine += "Evil balloons started entering the village. 1 balloon, then 2 balloons, then several more. The towers became afraid. ";

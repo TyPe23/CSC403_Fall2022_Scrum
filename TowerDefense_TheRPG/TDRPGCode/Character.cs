@@ -1,4 +1,6 @@
-﻿namespace TowerDefense_TheRPG.code {
+﻿using System.Drawing.Imaging;
+
+namespace TowerDefense_TheRPG.code {
   /// <summary>
   /// Base character class. Inherits from <see cref="Stats">Stats</see>.
   /// <see cref="Enemy"/>, <see cref="Player"/> and <see cref="Village"/> inherit from this class.
@@ -26,7 +28,7 @@
     /// Width of the picture box showing this character
     /// </summary>
     public int W { get; private set; }
-
+     
     /// <summary>
     /// Height of the picture box showing this character
     /// </summary>
@@ -211,12 +213,18 @@
     public virtual void Move(int dirX, int dirY, bool rememberLastMove = true) {
       Y += dirY * MoveSpeed;
       X += dirX * MoveSpeed;
+
+         
       ControlContainer.Top = Y;
       ControlContainer.Left = X;
+
+
       if (rememberLastMove) {
         lastMoveDirX = dirX;
         lastMoveDirY = dirY;
       }
+      
+
     }
 
     /// <summary>
