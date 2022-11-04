@@ -11,7 +11,7 @@ namespace TowerDefense_TheRPG {
     private string storyLine;
     private int curStoryLineIndex;
     private Random rand;
-    private int currlevel = 0;
+    private int currlevel;
     private int enemyCount;
     private int enemyMax;
     private bool spawnEnemy = false;
@@ -40,20 +40,9 @@ namespace TowerDefense_TheRPG {
         tmrTextCrawl.Enabled = false;
       }
     }
-    private void level()
-    {
-        currlevel++;
-        enemyMax = 5 * currlevel;
-        enemyCount = 0;
-
-        while (enemyCount < enemyMax)
-        {
-            spawnEnemy = true;
-        }
-        spawnEnemy = false;
-    }
+   
     private void tmrSpawnEnemies_Tick(object sender, EventArgs e) {
-        if (spawnEnemy)
+        if (enemyCount < enemyMax)
         {
             GenEnemyPos(out int x, out int y);
             int enemyType = rand.Next(4);
@@ -106,6 +95,10 @@ namespace TowerDefense_TheRPG {
       player = new Player(Width / 2, Height / 2 + 100);
       village = new Village(Width / 2 - 80, Height / 2 - 50);
       village.ControlContainer.SendToBack();
+      currlevel = 1;
+      enemyMax = 5 * currlevel;
+      enemyCount = 0;
+      
       tmrSpawnEnemies.Enabled = true;
       tmrMoveEnemies.Enabled = true;
       tmrMoveArrows.Enabled = true;
@@ -120,8 +113,6 @@ namespace TowerDefense_TheRPG {
       // otherwise, for whatever reason, the start button retains focus (even when enabled = false)
       // and arrow key presses are ignored and won't move player.
       Focus();
-
-      //level();
     }
     private void btnStoryLine_Click(object sender, EventArgs e) {
       if (btnStoryLine.Text.StartsWith("Show")) {
@@ -311,7 +302,21 @@ namespace TowerDefense_TheRPG {
           break;
       }
     }
-    #endregion
-    #endregion
+    private void Level()
+    {
+        currlevel++;
+        enemyMax = 5 * currlevel;
+        enemyCount = 0;
+
+
+        while (enemyCount < enemyMax)
+        {
+        Console.WriteLine(currlevel);
+            spawnEnemy = true;
+        }
+        spawnEnemy = false;
+    }
+        #endregion
+        #endregion
   }
 }
