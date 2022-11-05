@@ -272,19 +272,19 @@ namespace TowerDefense_TheRPG {
       switch (keyCode) {
         case Keys.Up:
         case Keys.W:
-          player.Move(0, -1);
+          player.PlayerMove(0, -1);
           break;
         case Keys.Down:
         case Keys.S:
-          player.Move(0, +1);
+          player.PlayerMove(0, +1);
           break;
         case Keys.Left:
         case Keys.A:
-          player.Move(-1, 0);
+          player.PlayerMove(-1, 0);
           break;
         case Keys.Right:
         case Keys.D:
-          player.Move(+1, 0);
+          player.PlayerMove(+1, 0);
           break;
       }
     }

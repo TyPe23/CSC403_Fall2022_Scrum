@@ -226,17 +226,49 @@ namespace TowerDefense_TheRPG.code {
       
 
     }
+        public virtual void PlayerMove(int dirX, int dirY, bool rememberLastMove = true) {
+            Y += dirY * MoveSpeed;
+            X += dirX * MoveSpeed;
 
-    /// <summary>
-    /// Used to see if two characters have collided. The <see cref="ControlContainer"/> of each character is
-    /// checked to see if there is an overlap. Note that this means that the health bar and empty area between image and
-    /// health bar are all part of the collision box of this character. If you change this code to only use <see cref="ControlCharacter"/>,
-    /// you will have to do extra math add in the offset from the ControlContainer as the Bounds property will only consider the
-    /// ControlCharacter's relative position within the ControlContainer and not its absolute position on the form.
-    /// </summary>
-    /// <param name="chr">The <see cref="Character"/> to check collision with</param>
-    /// <returns>True if these character collided, false otherwise</returns>
-    public bool DidCollide(Character chr) {
+            ControlContainer.Top = Y;
+            ControlContainer.Left = X;
+
+            if (X > 1000) {
+                ControlContainer.Left = 1000;
+
+            }
+            else if (X < 0){
+                ControlContainer.Left = 0;
+            }
+
+            if (Y > 800) {
+                ControlContainer.Top = 800;
+            }
+            else if (Y<0){
+                ControlContainer.Top= 0;
+            }
+            //ControlContainer.Top = Y;
+            //ControlContainer.Left = X;
+
+
+            if (rememberLastMove) {
+                lastMoveDirX = dirX;
+                lastMoveDirY = dirY;
+            }
+
+
+        }
+
+        /// <summary>
+        /// Used to see if two characters have collided. The <see cref="ControlContainer"/> of each character is
+        /// checked to see if there is an overlap. Note that this means that the health bar and empty area between image and
+        /// health bar are all part of the collision box of this character. If you change this code to only use <see cref="ControlCharacter"/>,
+        /// you will have to do extra math add in the offset from the ControlContainer as the Bounds property will only consider the
+        /// ControlCharacter's relative position within the ControlContainer and not its absolute position on the form.
+        /// </summary>
+        /// <param name="chr">The <see cref="Character"/> to check collision with</param>
+        /// <returns>True if these character collided, false otherwise</returns>
+        public bool DidCollide(Character chr) {
       return ControlContainer.Bounds.IntersectsWith(chr.ControlContainer.Bounds);
     }
 

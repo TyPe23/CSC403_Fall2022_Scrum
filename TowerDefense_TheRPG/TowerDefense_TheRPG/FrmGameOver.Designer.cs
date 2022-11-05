@@ -24,13 +24,12 @@
     /// </summary>
     private void InitializeComponent() {
             this.Menu = new System.Windows.Forms.Button();
-            this.Exit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Menu
             // 
             this.Menu.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Menu.Location = new System.Drawing.Point(369, 847);
+            this.Menu.Location = new System.Drawing.Point(562, 837);
             this.Menu.Name = "Menu";
             this.Menu.Size = new System.Drawing.Size(205, 109);
             this.Menu.TabIndex = 0;
@@ -38,27 +37,15 @@
             this.Menu.UseVisualStyleBackColor = true;
             this.Menu.Click += new System.EventHandler(this.Menu_Click);
             // 
-            // Exit
-            // 
-            this.Exit.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Exit.Location = new System.Drawing.Point(724, 847);
-            this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(205, 109);
-            this.Exit.TabIndex = 1;
-            this.Exit.Text = "Exit";
-            this.Exit.UseVisualStyleBackColor = true;
-            this.Exit.Click += new System.EventHandler(this.Exit_Click);
-            // 
             // FrmGameOver
-            //
-            this.ControlBox = false;
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::TowerDefense_TheRPG.Properties.Resources.gameover;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1313, 968);
-            this.Controls.Add(this.Exit);
+            //this.ControlBox = false;
             this.Controls.Add(this.Menu);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -73,6 +60,5 @@
         #endregion
 
         private Button Menu;
-        private Button Exit;
     }
 }
