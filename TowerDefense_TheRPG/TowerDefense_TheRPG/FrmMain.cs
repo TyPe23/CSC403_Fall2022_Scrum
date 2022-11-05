@@ -11,7 +11,7 @@ namespace TowerDefense_TheRPG {
     private string storyLine;
     private int curStoryLineIndex;
     private Random rand;
-    private int currlevel;
+    public readonly int currlevel;
     private int enemyCount;
     private int enemyMax;
     private bool spawnEnemy = false;
@@ -64,6 +64,29 @@ namespace TowerDefense_TheRPG {
             }
             enemies.Add(balloon);
             enemyCount++;
+        }
+        else
+        {
+
+             currlevel++;
+        }
+
+        switch (currlevel)
+        {
+            case 2:
+                village.ChangeCharacterPic("village2");
+                break;
+
+            case 10:
+                village.ChangeCharacterPic("village3");
+                break;
+
+            case 15:
+                village.ChangeCharacterPic("village4");
+                break;
+
+            default:
+                break;
         }
     }
     private void tmrMoveEnemies_Tick(object sender, EventArgs e) {
