@@ -226,23 +226,23 @@ namespace TowerDefense_TheRPG.code {
       
 
     }
-        public virtual void PlayerMove(int dirX, int dirY, bool rememberLastMove = true) {
+        public virtual void PMove(int dirX, int dirY, bool rememberLastMove = true) {
             Y += dirY * MoveSpeed;
             X += dirX * MoveSpeed;
 
             ControlContainer.Top = Y;
             ControlContainer.Left = X;
 
-            if (X > 1000) {
-                ControlContainer.Left = 1000;
+            if (X > 1260) {
+                ControlContainer.Left = 1260;
 
             }
             else if (X < 0){
                 ControlContainer.Left = 0;
             }
 
-            if (Y > 800) {
-                ControlContainer.Top = 800;
+            if (Y > 850) {
+                ControlContainer.Top = 850;
             }
             else if (Y<0){
                 ControlContainer.Top= 0;
