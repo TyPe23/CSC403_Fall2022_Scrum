@@ -172,7 +172,7 @@
 
     /// <summary>
     /// This will force a change of the image being displayed for this character. This is used
-    /// to make the image change for the player when a new level is obtained
+    /// to make the image change for the player when a new level is obtained or to make the village "grow" after every 5 levels
     /// </summary>
     /// <param name="resourceName">The name of the resource file. You can find this by opening Resources.resx and looking at the name under the image</param>
     public void ChangeCharacterPic(string resourceName) {
