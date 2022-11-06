@@ -71,6 +71,8 @@ namespace TowerDefense_TheRPG {
 
             // place button method call here
             // button should call Level() as FrmMain.Level();
+
+            Level();
         }
     }
     private void tmrMoveEnemies_Tick(object sender, EventArgs e) {
