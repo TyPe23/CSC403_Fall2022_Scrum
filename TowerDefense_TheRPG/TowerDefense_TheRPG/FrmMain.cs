@@ -11,10 +11,10 @@ namespace TowerDefense_TheRPG {
     private string storyLine;
     private int curStoryLineIndex;
     private Random rand;
-    public readonly int currlevel;
+    public  int currlevel;
     private int enemyCount;
     private int enemyMax;
-    private bool spawnEnemy = false;
+    //private bool spawnEnemy = false;
     #endregion
 
     #region Methods
@@ -67,26 +67,9 @@ namespace TowerDefense_TheRPG {
         }
         else
         {
-
-             currlevel++;
-        }
-
-        switch (currlevel)
-        {
-            case 2:
-                village.ChangeCharacterPic("village2");
-                break;
-
-            case 10:
-                village.ChangeCharacterPic("village3");
-                break;
-
-            case 15:
-                village.ChangeCharacterPic("village4");
-                break;
-
-            default:
-                break;
+            // place button method call here
+            // place skill menu method call here
+            //Level();
         }
     }
     private void tmrMoveEnemies_Tick(object sender, EventArgs e) {
@@ -331,13 +314,7 @@ namespace TowerDefense_TheRPG {
         enemyMax = 5 * currlevel;
         enemyCount = 0;
 
-
-        while (enemyCount < enemyMax)
-        {
-        Console.WriteLine(currlevel);
-            spawnEnemy = true;
-        }
-        spawnEnemy = false;
+        village.UpdateVillageImg(currlevel);
     }
         #endregion
         #endregion

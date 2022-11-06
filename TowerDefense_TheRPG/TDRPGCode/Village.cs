@@ -11,5 +11,30 @@
     public Village(int x, int y) : base("village", x, y, 165, 100) {
       SetMaxHealth(5.0f);
     }
+
+    /// <summary>
+    /// Updates the .png used every 5 levels
+    /// </summary>
+    /// <param name="currLevel"></param>
+    public void UpdateVillageImg(int currLevel)
+    {
+        switch (currLevel)
+        {
+            case 2:
+                ChangeCharacterPic("village2");
+                break;
+
+            case 10:
+                ChangeCharacterPic("village3");
+                break;
+
+            case 15:
+                ChangeCharacterPic("village4");
+                break;
+
+            default:
+                break;
+        }
+    }
   }
 }
