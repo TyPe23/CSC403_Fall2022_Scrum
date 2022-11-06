@@ -86,9 +86,12 @@ namespace TowerDefense_TheRPG {
     private void Form1_KeyDown(object sender, KeyEventArgs e) {
       PlayerMove(e.KeyCode);
     }
-
-    // buttons
-    private void btnStart_Click(object sender, EventArgs e) {
+    private void Form2_KeyDown(object sender, KeyEventArgs e)
+    {
+      Abilities(e.KeyCode);
+    }
+        // buttons
+        private void btnStart_Click(object sender, EventArgs e) {
       BackgroundImage = null;
       btnStart.Visible = false;
       btnStart.Enabled = false;
@@ -308,7 +311,16 @@ namespace TowerDefense_TheRPG {
           break;
       }
     }
-    private void Level()
+    private void Abilities(Keys keyCode)
+    {
+        switch (keyCode)
+        {
+            case Keys.Space:
+                FireArrows();
+                break;
+        }
+    }
+        private void Level()
     {
         currlevel++;
         enemyMax = 5 * currlevel;
