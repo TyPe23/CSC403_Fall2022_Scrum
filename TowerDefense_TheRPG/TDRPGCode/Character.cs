@@ -177,7 +177,7 @@ namespace TowerDefense_TheRPG.code {
     /// to make the image change for the player when a new level is obtained
     /// </summary>
     /// <param name="resourceName">The name of the resource file. You can find this by opening Resources.resx and looking at the name under the image</param>
-    protected void ChangeCharacterPic(string resourceName) {
+    public void ChangeCharacterPic(string resourceName) {
       ControlCharacter.BackgroundImage = ControlManager.ResMan.GetObject(resourceName) as Bitmap;
     }
 

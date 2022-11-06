@@ -39,19 +39,18 @@
             this.lblStoryLine.BackColor = System.Drawing.Color.Transparent;
             this.lblStoryLine.Font = new System.Drawing.Font("Segoe UI Emoji", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblStoryLine.ForeColor = System.Drawing.Color.White;
-            this.lblStoryLine.Location = new System.Drawing.Point(14, 12);
+            this.lblStoryLine.Location = new System.Drawing.Point(12, 9);
             this.lblStoryLine.Name = "lblStoryLine";
-            this.lblStoryLine.Size = new System.Drawing.Size(1286, 825);
+            this.lblStoryLine.Size = new System.Drawing.Size(1125, 619);
             this.lblStoryLine.TabIndex = 0;
             // 
             // btnStart
             // 
             this.btnStart.AutoSize = true;
             this.btnStart.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnStart.Location = new System.Drawing.Point(360, 823);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnStart.Location = new System.Drawing.Point(315, 617);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(251, 93);
+            this.btnStart.Size = new System.Drawing.Size(220, 70);
             this.btnStart.TabIndex = 1;
             this.btnStart.Text = "Play";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -75,10 +74,9 @@
             // 
             this.btnStoryLine.AutoSize = true;
             this.btnStoryLine.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnStoryLine.Location = new System.Drawing.Point(720, 823);
-            this.btnStoryLine.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnStoryLine.Location = new System.Drawing.Point(630, 617);
             this.btnStoryLine.Name = "btnStoryLine";
-            this.btnStoryLine.Size = new System.Drawing.Size(251, 93);
+            this.btnStoryLine.Size = new System.Drawing.Size(220, 70);
             this.btnStoryLine.TabIndex = 3;
             this.btnStoryLine.Text = "Show Storyline";
             this.btnStoryLine.UseVisualStyleBackColor = true;
@@ -96,19 +94,16 @@
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::TowerDefense_TheRPG.Properties.Resources.title;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1313, 968);
+            this.ClientSize = new System.Drawing.Size(1149, 726);
             this.Controls.Add(this.btnStoryLine);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.lblStoryLine);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MaximizeBox = false;
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tower Defense The RPG";
