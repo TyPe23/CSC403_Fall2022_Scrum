@@ -45,7 +45,9 @@
     public static void ClearAndCloseFormStack() {
       while (formStack.Count > 0) {
         PopAndCloseFromFormStack();
+
       }
     }
-  }
+ 
+    }
 }
