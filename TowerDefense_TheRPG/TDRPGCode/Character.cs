@@ -17,22 +17,22 @@ namespace TowerDefense_TheRPG.code {
     /// <summary>
     /// Current X (aka left) position
     /// </summary>
-    public int X { get; protected set; }
+    public int X { get; private set; }
 
     /// <summary>
     /// Current Y (aka top) position
     /// </summary>
-    public int Y { get; protected set; }
+    public int Y { get; private set; }
 
     /// <summary>
     /// Width of the picture box showing this character
     /// </summary>
-    public int W { get; protected set; }
+    public int W { get; private set; }
      
     /// <summary>
     /// Height of the picture box showing this character
     /// </summary>
-    public int H { get; protected set; }
+    public int H { get; private set; }
 
     /// <summary>
     /// Panel that contains the picturebox (showing the character) and the
