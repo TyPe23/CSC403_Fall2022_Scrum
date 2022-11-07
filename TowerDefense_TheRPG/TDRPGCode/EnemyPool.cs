@@ -2,21 +2,19 @@
 
 namespace TowerDefense_TheRPG
 {
-    public class EnemyPool : Enemy
+    public class EnemyPool
     {
 
-        private int poolSize = 20; // max size of que unless broken then will be larger 
-        public Queue<Enemy> pool = new Queue<Enemy>(); // the queue of enemys 
+        private const int poolSize = 20; // max size of que unless broken then will be larger 
+        public Queue<Enemy> pool = new Queue<Enemy>(poolSize); // the queue of enemys 
         private Random rand; // random
 
-        //
-        public EnemyPool(string name, int x, int y, int w, int h) : base(name, x, y, w, h)
-        {
-        }
+        // Default constructor 
+           // add weights to select 
 
         // generates a pool of poolSize and randomly selects ballons (all set to position 0,0)
         // (Do at start of each level) 
-        public void Start()
+        public void Start() // add weights 
         {
             rand = new Random();
             for (int i = 0; i < poolSize; i++)
@@ -59,24 +57,7 @@ namespace TowerDefense_TheRPG
             }
             else
             {
-                int enemyType = rand.Next(4);
-                Enemy balloon;
-                switch (enemyType)
-                {
-                    case 0:
-                        balloon = Enemy.MakeRedBalloon(0, 0);
-                        break;
-                    case 1:
-                        balloon = Enemy.MakePurpleBalloon(0, 0);
-                        break;
-                    case 2:
-                        balloon = Enemy.MakeGrayBalloon(0, 0);
-                        break;
-                    default:
-                        balloon = Enemy.MakeOrangeBalloon(0, 0);
-                        break;
-                }
-                return balloon;
+                return null;
             }
         }
 
