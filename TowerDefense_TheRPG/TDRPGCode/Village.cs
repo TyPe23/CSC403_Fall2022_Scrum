@@ -18,23 +18,43 @@
     /// <param name="currLevel"></param>
     public void UpdateVillageImg(int currLevel)
     {
+        IsVisible = false;
         switch (currLevel)
         {
             case 2:
-                ChangeCharacterPic("village2");
+                X -= 35;
+                Y -= 35;
+                W *= 3;
+                W /= 2;
+                H *= 3;
+                H /= 2;
+                MakeControls();
                 break;
 
-            case 10:
-                ChangeCharacterPic("village3");
+            case 3:
+                X -= 45;
+                Y -= 45;
+                W *= 3;
+                W /= 2;
+                H *= 3;
+                H /= 2;
+                MakeControls();
                 break;
 
-            case 15:
-                ChangeCharacterPic("village4");
+            case 4:
+                X -= 60;
+                Y -= 00;
+                W *= 5;
+                W /= 4;
+                H *= 5;
+                H /= 4;
+                MakeControls();
                 break;
 
             default:
                 break;
         }
+        IsVisible = true;
     }
   }
 }

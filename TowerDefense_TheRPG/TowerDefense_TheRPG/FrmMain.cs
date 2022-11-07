@@ -67,9 +67,9 @@ namespace TowerDefense_TheRPG {
         }
         else
         {
-            // place skill menu method call here
+            // place show skill menu method call here
 
-            // place button method call here
+            // place show button method call here
             // button should call Level() as FrmMain.Level();
 
             Level();
