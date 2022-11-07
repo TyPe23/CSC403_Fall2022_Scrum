@@ -8,6 +8,8 @@
     /// </summary>
     public int XPGiven { get; private set; }
 
+        // TODO: add helper function to change position on enemy -- add to end of code
+
     /// <summary>
     /// Default constructor
     /// </summary>
