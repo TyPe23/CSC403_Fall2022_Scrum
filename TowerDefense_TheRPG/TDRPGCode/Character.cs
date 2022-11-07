@@ -44,7 +44,7 @@ namespace TowerDefense_TheRPG.code {
     /// <summary>
     /// Used to indicate whether this character is visually shown or not on the screen
     /// </summary>
-    public bool IsVisible { get; protected set; }
+    public bool IsVisible { get; private set; }
     #endregion
 
     #region Fields
