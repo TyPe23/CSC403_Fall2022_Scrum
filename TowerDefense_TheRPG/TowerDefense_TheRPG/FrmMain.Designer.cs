@@ -32,6 +32,7 @@
             this.btnStoryLine = new System.Windows.Forms.Button();
             this.tmrMoveArrows = new System.Windows.Forms.Timer(this.components);
             this.tmrSpawnArrows = new System.Windows.Forms.Timer(this.components);
+            this.tmrMovePlayer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // lblStoryLine
@@ -39,7 +40,7 @@
             this.lblStoryLine.BackColor = System.Drawing.Color.Transparent;
             this.lblStoryLine.Font = new System.Drawing.Font("Segoe UI Emoji", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblStoryLine.ForeColor = System.Drawing.Color.White;
-            this.lblStoryLine.Location = new System.Drawing.Point(12, 9);
+            this.lblStoryLine.Location = new System.Drawing.Point(12, 68);
             this.lblStoryLine.Name = "lblStoryLine";
             this.lblStoryLine.Size = new System.Drawing.Size(1125, 619);
             this.lblStoryLine.TabIndex = 0;
@@ -92,6 +93,10 @@
             this.tmrSpawnArrows.Interval = 5000;
             this.tmrSpawnArrows.Tick += new System.EventHandler(this.tmrSpawnArrows_Tick);
             // 
+            // timer1
+            // 
+            this.tmrMovePlayer.Tick += new System.EventHandler(this.tmrMovePlayer_Tick);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -123,5 +128,6 @@
     private Button btnStoryLine;
     private System.Windows.Forms.Timer tmrMoveArrows;
     private System.Windows.Forms.Timer tmrSpawnArrows;
-  }
+        private System.Windows.Forms.Timer tmrMovePlayer;
+    }
 }
