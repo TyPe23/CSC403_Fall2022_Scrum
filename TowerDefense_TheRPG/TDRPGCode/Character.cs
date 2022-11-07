@@ -17,22 +17,22 @@ namespace TowerDefense_TheRPG.code {
     /// <summary>
     /// Current X (aka left) position
     /// </summary>
-    public int X { get; private set; }
+    public int X { get; protected set; }
 
     /// <summary>
     /// Current Y (aka top) position
     /// </summary>
-    public int Y { get; private set; }
+    public int Y { get; protected set; }
 
     /// <summary>
     /// Width of the picture box showing this character
     /// </summary>
-    public int W { get; private set; }
+    public int W { get; protected set; }
      
     /// <summary>
     /// Height of the picture box showing this character
     /// </summary>
-    public int H { get; private set; }
+    public int H { get; protected set; }
 
     /// <summary>
     /// Panel that contains the picturebox (showing the character) and the
@@ -134,7 +134,7 @@ namespace TowerDefense_TheRPG.code {
     /// and put all those controls into this container. Finally, it uses <see cref="ControlManager.Form"/> to grab a reference
     /// to the current form and will then add the ControlContainer to this form.
     /// </summary>
-    private void MakeControls() {
+    protected void MakeControls() {
       ControlContainer = new Panel() {
         Top = Y,
         Left = X,

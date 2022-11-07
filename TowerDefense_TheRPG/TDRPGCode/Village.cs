@@ -8,33 +8,10 @@
     /// </summary>
     /// <param name="x">Initial X (aka left) position of village</param>
     /// <param name="y">Initial Y (aka top) position of village</param>
-    public Village(int x, int y) : base("village", x, y, 165, 100) {
+    /// <param name="w">Initial W (aka width) of the village</param>
+    /// <param name="h">Initial H (aka height) of the w</param>
+    public Village(int x, int y, int w, int h) : base("village", x, y, w, h) {
       SetMaxHealth(5.0f);
-    }
-
-    /// <summary>
-    /// Updates the .png used every 5 levels
-    /// </summary>
-    /// <param name="currLevel"></param>
-    public void UpdateVillageImg(int currLevel)
-    {
-        switch (currLevel)
-        {
-            case 2:
-                ChangeCharacterPic("village2");
-                break;
-
-            case 10:
-                ChangeCharacterPic("village3");
-                break;
-
-            case 15:
-                ChangeCharacterPic("village4");
-                break;
-
-            default:
-                break;
-        }
     }
   }
 }

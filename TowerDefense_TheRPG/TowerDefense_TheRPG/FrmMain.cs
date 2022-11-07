@@ -67,10 +67,12 @@ namespace TowerDefense_TheRPG {
         }
         else
         {
-            // place skill menu method call here
+            // place show skill menu method call here
 
-            // place button method call here
+            // place show button method call here
             // button should call Level() as FrmMain.Level();
+
+            Level();
         }
     }
     private void tmrMoveEnemies_Tick(object sender, EventArgs e) {
@@ -100,7 +102,7 @@ namespace TowerDefense_TheRPG {
       enemies = new List<Enemy>();
       arrows = new List<Arrow>();
       player = new Player(Width / 2, Height / 2 + 100);
-      village = new Village(Width / 2 - 80, Height / 2 - 50);
+      village = new Village(Width / 2 - 80, Height / 2 - 50, 165, 100);
       village.ControlContainer.SendToBack();
       currlevel = 1;
       enemyMax = 5 * currlevel;
@@ -323,9 +325,31 @@ namespace TowerDefense_TheRPG {
         enemyMax = 5 * currlevel;
         enemyCount = 0;
 
-        village.UpdateVillageImg(currlevel);
+        switch (currlevel)
+        {
+            case 5:
+                village.Hide();
+                village = new Village(Width / 2 - 110, Height / 2 - 65, 220, 135);
+                village.SetMaxHealth(7.5f);
+                break;
+
+            case 10:
+                village.Hide();
+                village = new Village(Width / 2 - 150, Height / 2 - 85, 295, 175);
+                village.SetMaxHealth(10.0f);
+                break;
+
+            case 15:
+                village.Hide();
+                village = new Village(Width / 2 - 200, Height / 2 - 150, 390, 235);
+                village.SetMaxHealth(15.0f);
+                break;
+
+            default:
+                break;
+        }
     }
-        #endregion
-        #endregion
+    #endregion
+    #endregion
   }
 }
