@@ -17,22 +17,22 @@ namespace TowerDefense_TheRPG.code {
     /// <summary>
     /// Current X (aka left) position
     /// </summary>
-    public int X { get; protected set; }
+    public int X { get; private set; }
 
     /// <summary>
     /// Current Y (aka top) position
     /// </summary>
-    public int Y { get; protected set; }
+    public int Y { get; private set; }
 
     /// <summary>
     /// Width of the picture box showing this character
     /// </summary>
-    public int W { get; protected set; }
+    public int W { get; private set; }
      
     /// <summary>
     /// Height of the picture box showing this character
     /// </summary>
-    public int H { get; protected set; }
+    public int H { get; private set; }
 
     /// <summary>
     /// Panel that contains the picturebox (showing the character) and the
@@ -226,38 +226,7 @@ namespace TowerDefense_TheRPG.code {
       
 
     }
-        public virtual void PMove(int dirX, int dirY, bool rememberLastMove = true) {
-            Y += dirY * MoveSpeed;
-            X += dirX * MoveSpeed;
-
-            ControlContainer.Top = Y;
-            ControlContainer.Left = X;
-
-            if (X > 1260) {
-                ControlContainer.Left = 1260;
-
-            }
-            else if (X < 0){
-                ControlContainer.Left = 0;
-            }
-
-            if (Y > 850) {
-                ControlContainer.Top = 850;
-            }
-            else if (Y<0){
-                ControlContainer.Top= 0;
-            }
-            //ControlContainer.Top = Y;
-            //ControlContainer.Left = X;
-
-
-            if (rememberLastMove) {
-                lastMoveDirX = dirX;
-                lastMoveDirY = dirY;
-            }
-
-
-        }
+        
 
         /// <summary>
         /// Used to see if two characters have collided. The <see cref="ControlContainer"/> of each character is
