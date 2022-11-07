@@ -301,7 +301,7 @@ namespace TowerDefense_TheRPG {
           break;
         case Keys.Down:
         case Keys.S:
-          if (player.Y < 850) {
+          if (player.Y < Height-(player.H * 1.5)) {
               player.PMove(0, +1);
           }
           break;
@@ -313,7 +313,7 @@ namespace TowerDefense_TheRPG {
           break;
         case Keys.Right:
         case Keys.D:
-          if (player.X < 1260) {
+          if (player.X < Width-(player.W * 1.5)) {
               player.PMove(+1, 0);
           }
           break;
