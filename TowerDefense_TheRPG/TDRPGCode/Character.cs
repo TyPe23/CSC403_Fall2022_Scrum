@@ -226,38 +226,7 @@ namespace TowerDefense_TheRPG.code {
       
 
     }
-        public virtual void PMove(int dirX, int dirY, bool rememberLastMove = true) {
-            Y += dirY * MoveSpeed;
-            X += dirX * MoveSpeed;
-
-            ControlContainer.Top = Y;
-            ControlContainer.Left = X;
-
-            if (X > 1260) {
-                ControlContainer.Left = 1260;
-
-            }
-            else if (X < 0){
-                ControlContainer.Left = 0;
-            }
-
-            if (Y > 850) {
-                ControlContainer.Top = 850;
-            }
-            else if (Y<0){
-                ControlContainer.Top= 0;
-            }
-            //ControlContainer.Top = Y;
-            //ControlContainer.Left = X;
-
-
-            if (rememberLastMove) {
-                lastMoveDirX = dirX;
-                lastMoveDirY = dirY;
-            }
-
-
-        }
+        
 
         /// <summary>
         /// Used to see if two characters have collided. The <see cref="ControlContainer"/> of each character is
