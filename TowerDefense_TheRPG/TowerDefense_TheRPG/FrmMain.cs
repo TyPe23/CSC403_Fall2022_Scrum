@@ -125,6 +125,10 @@ namespace TowerDefense_TheRPG
         {
             PlayerMove(e.KeyCode);
         }
+        private void Form2_KeyDown(object sender, KeyEventArgs e)
+        {
+            Abilities(e.KeyCode);
+        }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
@@ -421,6 +425,15 @@ namespace TowerDefense_TheRPG
                 case Keys.Right:
                 case Keys.D:
                     rightMove = true;
+                    break;
+            }
+        }
+        private void Abilities(Keys keyCode)
+        {
+            switch (keyCode)
+            {
+                case Keys.Space:
+                    FireArrows();
                     break;
             }
         }
