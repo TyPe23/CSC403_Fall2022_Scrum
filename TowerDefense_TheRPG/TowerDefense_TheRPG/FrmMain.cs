@@ -460,7 +460,7 @@ namespace TowerDefense_TheRPG
                     break;
 
                 case 10:
-                     village.Hide();
+                    village.Hide();
                     village = new Village(Width / 2 - 150, Height / 2 - 85, 295, 175);
                     village.SetMaxHealth(10.0f);
                     break;
