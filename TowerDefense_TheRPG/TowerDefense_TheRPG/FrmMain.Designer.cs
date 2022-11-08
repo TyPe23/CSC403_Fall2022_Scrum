@@ -31,6 +31,7 @@
             this.tmrMoveEnemies = new System.Windows.Forms.Timer(this.components);
             this.btnStoryLine = new System.Windows.Forms.Button();
             this.tmrMoveArrows = new System.Windows.Forms.Timer(this.components);
+            this.tmrMoveFireballs = new System.Windows.Forms.Timer(this.components);
             this.tmrSpawnArrows = new System.Windows.Forms.Timer(this.components);
             this.tmrMovePlayer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
@@ -87,13 +88,18 @@
             // 
             this.tmrMoveArrows.Interval = 10;
             this.tmrMoveArrows.Tick += new System.EventHandler(this.tmrMoveArrows_Tick);
+            //
+            //tmrMoveAbillites
+            //
+            this.tmrMoveFireballs.Interval = 10;
+            this.tmrMoveFireballs.Tick += new System.EventHandler(this.tmrMoveFireballs_Tick);
             // 
             // tmrSpawnArrows
             // 
             this.tmrSpawnArrows.Interval = 5000;
             this.tmrSpawnArrows.Tick += new System.EventHandler(this.tmrSpawnArrows_Tick);
             // 
-            // timer1
+            // tmrMovePlayer
             // 
             this.tmrMovePlayer.Tick += new System.EventHandler(this.tmrMovePlayer_Tick);
             // 
@@ -113,8 +119,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tower Defense The RPG";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form2_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,6 +135,7 @@
     private System.Windows.Forms.Timer tmrMoveEnemies;
     private Button btnStoryLine;
     private System.Windows.Forms.Timer tmrMoveArrows;
+    private System.Windows.Forms.Timer tmrMoveFireballs;
     private System.Windows.Forms.Timer tmrSpawnArrows;
         private System.Windows.Forms.Timer tmrMovePlayer;
     }

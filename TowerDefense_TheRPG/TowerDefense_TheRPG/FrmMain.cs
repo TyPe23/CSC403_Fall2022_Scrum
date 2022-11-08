@@ -10,6 +10,7 @@ namespace TowerDefense_TheRPG
         private Village village;
         private List<Enemy> enemies;
         private List<Arrow> arrows;
+        private List<Fireball> fireballs;
         private string storyLine;
         private int curStoryLineIndex;
         private Random rand;
@@ -98,6 +99,12 @@ namespace TowerDefense_TheRPG
         {
             MoveArrows();
         }
+        
+        
+        private void tmrMoveFireballs_Tick(object sender, EventArgs e)
+        {
+            MoveFireballs();
+        }
 
         private void tmrMovePlayer_Tick(object sender, EventArgs e)
         {
@@ -147,6 +154,7 @@ namespace TowerDefense_TheRPG
 
             enemies = new List<Enemy>();
             arrows = new List<Arrow>();
+            fireballs = new List<Fireball>();
             player = new Player(Width / 2, Height / 2 + 100);
             village = new Village(Width / 2 - 80, Height / 2 - 50, 165, 100);
             village.ControlContainer.SendToBack();
@@ -157,6 +165,7 @@ namespace TowerDefense_TheRPG
             tmrSpawnEnemies.Enabled = true;
             tmrMoveEnemies.Enabled = true;
             tmrMoveArrows.Enabled = true;
+            tmrMoveFireballs.Enabled = true;
             tmrTextCrawl.Enabled = false;
             tmrMovePlayer.Enabled = true;
 
@@ -361,6 +370,36 @@ namespace TowerDefense_TheRPG
                 Controls.Remove(arrow.ControlCharacter);
             }
         }
+        private void MoveFireballs()
+        {
+            List<Fireball> FireballsToRemove = new List<Fireball>();
+            foreach (Fireball fireball in fireballs)
+            {
+                fireball.Move();
+                foreach (Enemy enemy in enemies)
+                {
+                    if (fireball.DidCollide(enemy))
+                    {
+                        enemy.TakeDamage(0.1f);
+                        if (enemy.CurHealth <= 0)
+                        {
+                            enemy.Hide();
+                            player.GainXP(enemy.XPGiven);
+                        }
+                        else
+                        {
+                            enemy.KnockBack();
+                        }
+                        FireballsToRemove.Add(fireball);
+                    }
+                }
+            }
+            foreach (Fireball fireball in FireballsToRemove)
+            {
+                fireballs.Remove(fireball);
+                Controls.Remove(fireball.ControlCharacter);
+            }
+        }
         private void FireArrows()
         {
             Arrow arrowLeft = new Arrow(player.X, player.Y, -1, 0);
@@ -369,6 +408,15 @@ namespace TowerDefense_TheRPG
             arrows.Add(arrowRight);
             arrowLeft.ControlCharacter.BringToFront();
             arrowRight.ControlCharacter.BringToFront();
+        }
+        private void FireBall()
+        {
+            Fireball ballLeft = new Fireball(player.X, player.Y, -1, 0);
+            Fireball ballRight = new Fireball(player.X, player.Y, +1, 0);
+            fireballs.Add(ballLeft);
+            fireballs.Add(ballRight);
+            ballLeft.ControlCharacter.BringToFront();
+            ballRight.ControlCharacter.BringToFront();
         }
         private void PlayerMove(Keys keyCode)
         {
@@ -433,7 +481,7 @@ namespace TowerDefense_TheRPG
             switch (keyCode)
             {
                 case Keys.Space:
-                    FireArrows();
+                    FireBall();
                     break;
             }
         }
@@ -478,5 +526,7 @@ namespace TowerDefense_TheRPG
         #endregion
 
         #endregion
+
+
     }
 }
