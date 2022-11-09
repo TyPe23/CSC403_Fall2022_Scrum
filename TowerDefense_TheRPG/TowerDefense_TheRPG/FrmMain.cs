@@ -91,16 +91,6 @@ namespace TowerDefense_TheRPG
                     // next level 
                     Level();
                 }
-                // place show skill menu method call here
-
-                // place show button method call here
-                //Button NextLevelButton = new Button();
-                //NextLevelButton.Text = "Next Level";
-                //NextLevelButton.Location = new Point(0, 0);
-
-                // button should call Level() as FrmMain.Level();
-
-                //Level();
             }
         }
 
@@ -455,10 +445,6 @@ namespace TowerDefense_TheRPG
         }
         private void PlayerStopMove(Keys keyCode)
         {
-            /*upMove = false;
-            downMove = false;
-            leftMove = false;
-            rightMove = false;*/
             switch (keyCode)
             {
                 case Keys.Up:
