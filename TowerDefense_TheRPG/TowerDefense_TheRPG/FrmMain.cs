@@ -81,7 +81,8 @@ namespace TowerDefense_TheRPG
             }
             else
             {
-                if(enemyLeft == 0) // if there are no more enemys on screen 
+                // might want to display enemyLeft on scrren for user and dev 
+                if(enemyLeft <= 0) // if there are no more enemys on screen 
                 {
                     // show skills secreen 
                     // Put button and wait for button click 
@@ -484,6 +485,7 @@ namespace TowerDefense_TheRPG
             currlevel++;
             enemyMax = 5 * currlevel;
             enemyCount = 0;
+            enemyLeft = 0;
 
             switch (currlevel)
             {
