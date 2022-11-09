@@ -94,30 +94,6 @@ namespace TowerDefense_TheRPG
             }
         }
 
-        private void nextLevelButton() // places button 
-        {
-            Button NextLevelButton = new Button();
-            NextLevelButton.AutoSize = true;
-            NextLevelButton.Text = "Next Level";
-            NextLevelButton.Location = new Point(500, 600);
-            NextLevelButton.Size = new Size(100, 100);
-            NextLevelButton.Visible = true;
-            NextLevelButton.UseVisualStyleBackColor = true;
-            NextLevelButton.Click += new System.EventHandler(this.nextLevel_Click);
-            Controls.Add(NextLevelButton);
-
-            //this.btnStart.AutoSize = true;
-            //this.btnStart.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            //this.btnStart.Location = new System.Drawing.Point(315, 617);
-            //this.btnStart.Name = "btnStart";
-            //this.btnStart.Size = new System.Drawing.Size(220, 70);
-            //this.btnStart.TabIndex = 1;
-            //this.btnStart.Text = "Play";
-            //this.btnStart.UseVisualStyleBackColor = true;
-            //this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-
-
-        }
         private void tmrMoveEnemies_Tick(object sender, EventArgs e)
         {
             MoveEnemies();
@@ -130,7 +106,6 @@ namespace TowerDefense_TheRPG
         {
             MoveArrows();
         }
-
         private void tmrMovePlayer_Tick(object sender, EventArgs e)
         {
             if (player.Y > 0 && upMove)
