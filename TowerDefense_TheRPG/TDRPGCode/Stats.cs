@@ -21,7 +21,7 @@
     /// <summary>
     /// Movement speed (in pixels)
     /// </summary>
-    public int Speed { get; set; }
+    public int MoveSpeed { get; set; }
 
     /// <summary>
     /// Default constructor assigning all ones to stats.
@@ -32,7 +32,7 @@
       Attack = 1;
       CurHealth = 1;
       MaxHealth = 1;
-      Speed = 1;
+      MoveSpeed = 1;
     }
   }
 }

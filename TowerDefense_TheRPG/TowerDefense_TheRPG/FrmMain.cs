@@ -150,7 +150,7 @@ namespace TowerDefense_TheRPG
             {
                 player.Move(0, +1);
             }
-
+                
             if (player.X > 0 && leftMove)
             {
                 player.Move(-1, 0);
@@ -244,21 +244,6 @@ namespace TowerDefense_TheRPG
 
                 tmrTextCrawl.Enabled = false;
             }
-        }
-
-        private void btnAddAttack_Click(object sender, EventArgs e)
-        {
-            player.AddAttack();
-        }
-
-        private void btnAddMagic_Click(object sender, EventArgs e)
-        {
-            player.AddMagic();
-        }
-
-        private void btnAddSpeed_Click(object sender, EventArgs e)
-        {
-            player.AddSpeed();
         }
         #endregion
 
@@ -469,6 +454,10 @@ namespace TowerDefense_TheRPG
         }
         private void PlayerStopMove(Keys keyCode)
         {
+            /*upMove = false;
+            downMove = false;
+            leftMove = false;
+            rightMove = false;*/
             switch (keyCode)
             {
                 case Keys.Up:

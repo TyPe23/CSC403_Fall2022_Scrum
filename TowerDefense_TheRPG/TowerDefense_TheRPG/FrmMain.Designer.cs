@@ -33,9 +33,6 @@
             this.tmrMoveArrows = new System.Windows.Forms.Timer(this.components);
             this.tmrSpawnArrows = new System.Windows.Forms.Timer(this.components);
             this.tmrMovePlayer = new System.Windows.Forms.Timer(this.components);
-            this.btnAddAttack = new System.Windows.Forms.Button();
-            this.btnAddMagic = new System.Windows.Forms.Button();
-            this.btnAddSpeed = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblStoryLine
@@ -96,45 +93,9 @@
             this.tmrSpawnArrows.Interval = 5000;
             this.tmrSpawnArrows.Tick += new System.EventHandler(this.tmrSpawnArrows_Tick);
             // 
-            // tmrMovePlayer
+            // timer1
             // 
             this.tmrMovePlayer.Tick += new System.EventHandler(this.tmrMovePlayer_Tick);
-            // 
-            // btnAddAttack
-            // 
-            this.btnAddAttack.Enabled = false;
-            this.btnAddAttack.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnAddAttack.Location = new System.Drawing.Point(315, 138);
-            this.btnAddAttack.Name = "btnAddAttack";
-            this.btnAddAttack.Size = new System.Drawing.Size(220, 101);
-            this.btnAddAttack.TabIndex = 4;
-            this.btnAddAttack.Text = "Attack";
-            this.btnAddAttack.UseVisualStyleBackColor = true;
-            this.btnAddAttack.Visible = false;
-            // 
-            // btnAddMagic
-            // 
-            this.btnAddMagic.Enabled = false;
-            this.btnAddMagic.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnAddMagic.Location = new System.Drawing.Point(315, 300);
-            this.btnAddMagic.Name = "btnAddMagic";
-            this.btnAddMagic.Size = new System.Drawing.Size(220, 98);
-            this.btnAddMagic.TabIndex = 5;
-            this.btnAddMagic.Text = "Magic";
-            this.btnAddMagic.UseVisualStyleBackColor = true;
-            this.btnAddMagic.Visible = false;
-            // 
-            // btnAddSpeed
-            // 
-            this.btnAddSpeed.Enabled = false;
-            this.btnAddSpeed.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnAddSpeed.Location = new System.Drawing.Point(315, 459);
-            this.btnAddSpeed.Name = "btnAddSpeed";
-            this.btnAddSpeed.Size = new System.Drawing.Size(220, 98);
-            this.btnAddSpeed.TabIndex = 6;
-            this.btnAddSpeed.Text = "Speed";
-            this.btnAddSpeed.UseVisualStyleBackColor = true;
-            this.btnAddSpeed.Visible = false;
             // 
             // FrmMain
             // 
@@ -144,9 +105,6 @@
             this.BackgroundImage = global::TowerDefense_TheRPG.Properties.Resources.title;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1149, 726);
-            this.Controls.Add(this.btnAddSpeed);
-            this.Controls.Add(this.btnAddMagic);
-            this.Controls.Add(this.btnAddAttack);
             this.Controls.Add(this.btnStoryLine);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.lblStoryLine);
@@ -154,8 +112,9 @@
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tower Defense The RPG";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form2_KeyDown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form2_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,8 +131,5 @@
     private System.Windows.Forms.Timer tmrMoveArrows;
     private System.Windows.Forms.Timer tmrSpawnArrows;
         private System.Windows.Forms.Timer tmrMovePlayer;
-        private Button btnAddAttack;
-        private Button btnAddMagic;
-        private Button btnAddSpeed;
     }
 }
