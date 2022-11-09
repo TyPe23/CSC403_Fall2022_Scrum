@@ -372,42 +372,6 @@ namespace TowerDefense_TheRPG
         }
         private void PlayerMove(Keys keyCode)
         {
-            /*switch (keyCode)
-            {
-                case Keys.Up:
-                case Keys.W:
-                    if (player.Y > 0)
-                    {
-                        player.Move(0, -1);
-                    }
-                    break;
-                case Keys.Down:
-                case Keys.S:
-                    if (player.Y < Height - (player.H * 1.5))
-                    {
-                        player.Move(0, +1);
-                    }
-                    break;
-                case Keys.Left:
-                case Keys.A:
-                    if (player.X > 0)
-                    {
-                        player.Move(-1, 0);
-                    }
-                    break;
-                case Keys.Right:
-                case Keys.D:
-                    if (player.X < Width - (player.W * 1.5))
-                    {
-                        player.Move(+1, 0);
-                    }
-                    break;
-            }*/
-            upMove = false;
-            downMove = false;
-            leftMove = false;
-            rightMove = false;
-
             switch (keyCode)
             {
                 case Keys.Up:
@@ -439,10 +403,29 @@ namespace TowerDefense_TheRPG
         }
         private void PlayerStopMove(Keys keyCode)
         {
-            upMove = false;
+            /*upMove = false;
             downMove = false;
             leftMove = false;
-            rightMove = false;
+            rightMove = false;*/
+            switch (keyCode)
+            {
+                case Keys.Up:
+                case Keys.W:
+                    upMove = false;
+                    break;
+                case Keys.Down:
+                case Keys.S:
+                    downMove = false;
+                    break;
+                case Keys.Left:
+                case Keys.A:
+                    leftMove = false;
+                    break;
+                case Keys.Right:
+                case Keys.D:
+                    rightMove = false;
+                    break;
+            }
         }
 
         private void Level()
