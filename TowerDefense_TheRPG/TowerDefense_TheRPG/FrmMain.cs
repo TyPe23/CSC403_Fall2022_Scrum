@@ -82,15 +82,15 @@ namespace TowerDefense_TheRPG
             else
             {
                 // might want to display enemyLeft on scrren for user and dev 
-                if(enemyLeft <= 0) // if there are no more enemys on screen 
-                {
+                //if(enemyLeft <= 0) // if there are no more enemys on screen 
+                //{
                     // show skills secreen 
                     // Put button and wait for button click 
                     //nextLevelButton(); 
                     // after button click remove skills screen and button  
                     // next level 
                     Level();
-                }
+                //}
             }
         }
 
