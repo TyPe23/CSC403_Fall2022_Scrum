@@ -1,3 +1,4 @@
+using System.DirectoryServices;
 using TowerDefense_TheRPG.code;
 using TowerDefense_TheRPG.Properties;
 
@@ -16,6 +17,7 @@ namespace TowerDefense_TheRPG
         public int currlevel;
         private int enemyCount;
         private int enemyMax;
+        private int enemyLeft;
         private bool upMove = false;
         private bool downMove = false;
         private bool leftMove = false;
@@ -53,7 +55,7 @@ namespace TowerDefense_TheRPG
 
         private void tmrSpawnEnemies_Tick(object sender, EventArgs e)
         {
-            if (enemyCount < enemyMax)
+            if (enemyCount < enemyMax) // max per level 
             {
                 GenEnemyPos(out int x, out int y);
                 int enemyType = rand.Next(4);
@@ -75,16 +77,55 @@ namespace TowerDefense_TheRPG
                 }
                 enemies.Add(balloon);
                 enemyCount++;
+                enemyLeft++;// curently on screen/not dead 
             }
             else
             {
+                if(enemyLeft == 0) // if there are no more enemys on screen 
+                {
+                    // show skills secreen 
+                    // Put button and wait for button click 
+                    //nextLevelButton(); 
+                    // after button click remove skills screen and button  
+                    // next level 
+                    Level();
+                }
                 // place show skill menu method call here
 
                 // place show button method call here
+                //Button NextLevelButton = new Button();
+                //NextLevelButton.Text = "Next Level";
+                //NextLevelButton.Location = new Point(0, 0);
+
                 // button should call Level() as FrmMain.Level();
 
-                Level();
+                //Level();
             }
+        }
+
+        private void nextLevelButton() // places button 
+        {
+            Button NextLevelButton = new Button();
+            NextLevelButton.AutoSize = true;
+            NextLevelButton.Text = "Next Level";
+            NextLevelButton.Location = new Point(500, 600);
+            NextLevelButton.Size = new Size(100, 100);
+            NextLevelButton.Visible = true;
+            NextLevelButton.UseVisualStyleBackColor = true;
+            NextLevelButton.Click += new System.EventHandler(this.nextLevel_Click);
+            Controls.Add(NextLevelButton);
+
+            //this.btnStart.AutoSize = true;
+            //this.btnStart.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            //this.btnStart.Location = new System.Drawing.Point(315, 617);
+            //this.btnStart.Name = "btnStart";
+            //this.btnStart.Size = new System.Drawing.Size(220, 70);
+            //this.btnStart.TabIndex = 1;
+            //this.btnStart.Text = "Play";
+            //this.btnStart.UseVisualStyleBackColor = true;
+            //this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+
+
         }
         private void tmrMoveEnemies_Tick(object sender, EventArgs e)
         {
@@ -152,6 +193,7 @@ namespace TowerDefense_TheRPG
             village.ControlContainer.SendToBack();
             currlevel = 1;
             enemyMax = 5 * currlevel;
+            //enemyMax = 1; // for testing levels only 
             enemyCount = 0;
 
             tmrSpawnEnemies.Enabled = true;
@@ -170,6 +212,14 @@ namespace TowerDefense_TheRPG
             // and arrow key presses are ignored and won't move player.
             Focus();
         }
+        // handles next level button event 
+        private void nextLevel_Click(object sender, EventArgs e)
+        {
+            //NextLevelButton.Visible = false;
+            Level();
+
+        }
+
         private void btnStoryLine_Click(object sender, EventArgs e)
         {
             if (btnStoryLine.Text.StartsWith("Show"))
@@ -270,6 +320,7 @@ namespace TowerDefense_TheRPG
                     enemy.TakeDamageFrom(player);
                     if (enemy.CurHealth <= 0)
                     {
+                        enemyLeft --;
                         enemy.Hide();
                         int levelBefore = player.Level;
                         player.GainXP(enemy.XPGiven);
