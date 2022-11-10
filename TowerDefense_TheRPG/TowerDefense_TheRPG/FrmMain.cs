@@ -81,18 +81,7 @@ namespace TowerDefense_TheRPG
             }
             else
             {
-                // might want to display enemyLeft on scrren for user and dev 
-                //if(enemyLeft <= 0) // if there are no more enemys on screen 
-                //{
-                // show skills secreen 
-                // Put button and wait for button click 
-                //nextLevelButton(); 
-                // after button click remove skills screen and button  
-                // next level 
                 ShowSPMenu();
-
-                    //Level();
-                //}
             }
         }
 
@@ -158,7 +147,7 @@ namespace TowerDefense_TheRPG
             village.ControlContainer.SendToBack();
             currlevel = 1;
             enemyMax = 5 * currlevel;
-            //enemyMax = 1; // for testing levels only 
+            enemyMax = 1; // for testing levels only 
             enemyCount = 0;
 
             tmrSpawnEnemies.Enabled = true;
@@ -206,18 +195,22 @@ namespace TowerDefense_TheRPG
 
         private void btnAddAttack_Click(object sender, EventArgs e)
         {
-
+            AttackLabel.Text = "Attack: " + player.Attack;
+            player.AddAttack();
         }
         private void btnAddMagic_Click(object sender, EventArgs e)
         {
-
+            MagicLabel.Text = "Magic: " + player.Magic;
+            player.AddMagic();
         }
         private void btnAddSpeed_Click(object sender, EventArgs e)
         {
-
+            SpeedLabel.Text = "Speed: " + player.MoveSpeed;
+            player.AddSpeed();
         }
         private void btnNextLevel_Click(object sender, EventArgs e)
         {
+            player.GainLevel();
             Level();
         }
         #endregion
@@ -225,6 +218,10 @@ namespace TowerDefense_TheRPG
         #region Helper functions
         private void ShowSPMenu()
         {
+            AttackLabel.Text = "Attack: " + player.Attack;
+            MagicLabel.Text = "Magic: " + player.Magic;
+            SpeedLabel.Text = "Speed: " + player.MoveSpeed;
+
             btnAddAttack.Visible = true;
             btnAddMagic.Visible = true;
             btnAddSpeed.Visible = true;
@@ -487,7 +484,7 @@ namespace TowerDefense_TheRPG
         private void Level()
         {
             currlevel++;
-            enemyMax = 5 * currlevel;
+            //enemyMax = 5 * currlevel;
             enemyCount = 0;
             enemyLeft = 0;
 

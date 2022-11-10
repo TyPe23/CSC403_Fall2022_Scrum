@@ -6,10 +6,9 @@
     public class Player : Character
     {
         /// <summary>
-        /// Amount of money the player has. Currently this is not being
-        /// used but you could add this as a feature.
+        /// Amount of magic the player has
         /// </summary>
-        public int Money { get; private set; }
+        public int Magic { get; private set; }
 
         /// <summary>
         /// Skill points held by the player
@@ -37,11 +36,11 @@
         public Player(int x, int y) : base("player", x, y, 50, 100)
         {
             SetMaxHealth(1.0f);
-            Money = 0;
+            Magic = 0;
             Attack = 0.15f;
             MoveSpeed = 15;
             Level = 1;
-            SkillPoints = 0;
+            SkillPoints = 1;
             ChangeCharacterPic("playerL" + Level);
         }
 
@@ -60,7 +59,11 @@
         /// </summary>
         public void AddAttack()
         {
-
+            if (SkillPoints > 0)
+            {
+                SkillPoints--;
+                Attack += 0.05f;
+            }
         }
 
         /// <summary>
@@ -68,7 +71,11 @@
         /// </summary>
         public void AddMagic()
         {
-
+            if (SkillPoints > 0)
+            {
+                SkillPoints--;
+                Magic++;
+            }
         }
 
         /// <summary>
@@ -76,7 +83,11 @@
         /// </summary>
         public void AddSpeed()
         {
-
+            if (SkillPoints > 0)
+            {
+                SkillPoints--;
+                MoveSpeed++;
+            }
         }
     }
 }
