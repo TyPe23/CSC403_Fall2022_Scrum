@@ -204,6 +204,42 @@ namespace TowerDefense_TheRPG
         #endregion
 
         #region Helper functions
+        private void ShowSPMenu()
+        {
+            btnAddAttack.Visible = true;
+            btnAddMagic.Visible = true;
+            btnAddSpeed.Visible = true;
+
+            AttackLabel.Visible = true;
+            MagicLabel.Visible = true;
+            SpeedLabel.Visible = true;
+
+            btnNextLevel.Visible = true;
+
+            btnAddAttack.Enabled = true;
+            btnAddMagic.Enabled = true;
+            btnAddSpeed.Enabled = true;
+
+            btnNextLevel.Enabled = true;
+        }
+        private void HideSPMenu()
+        {
+            btnAddAttack.Visible = false;
+            btnAddMagic.Visible = false;
+            btnAddSpeed.Visible = false;
+
+            AttackLabel.Visible = false;
+            MagicLabel.Visible = false;
+            SpeedLabel.Visible = false;
+
+            btnNextLevel.Visible = false;
+
+            btnAddAttack.Enabled = false;
+            btnAddMagic.Enabled = false;
+            btnAddSpeed.Enabled = false;
+
+            btnNextLevel.Enabled = false;
+        }
         private void Storyline()
         {
             // TODO: probably should be read from a resource text file

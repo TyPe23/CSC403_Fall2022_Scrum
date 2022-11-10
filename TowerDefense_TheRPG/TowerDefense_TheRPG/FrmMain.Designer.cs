@@ -156,7 +156,6 @@
             // 
             this.AttackLabel.AutoSize = true;
             this.AttackLabel.BackColor = System.Drawing.Color.Gainsboro;
-            this.AttackLabel.Enabled = false;
             this.AttackLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.AttackLabel.Location = new System.Drawing.Point(362, 135);
             this.AttackLabel.MinimumSize = new System.Drawing.Size(220, 70);
@@ -170,7 +169,6 @@
             // 
             this.MagicLabel.AutoSize = true;
             this.MagicLabel.BackColor = System.Drawing.Color.Gainsboro;
-            this.MagicLabel.Enabled = false;
             this.MagicLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.MagicLabel.Location = new System.Drawing.Point(362, 290);
             this.MagicLabel.MinimumSize = new System.Drawing.Size(220, 70);
@@ -184,7 +182,6 @@
             // 
             this.SpeedLabel.AutoSize = true;
             this.SpeedLabel.BackColor = System.Drawing.Color.Gainsboro;
-            this.SpeedLabel.Enabled = false;
             this.SpeedLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.SpeedLabel.Location = new System.Drawing.Point(362, 439);
             this.SpeedLabel.MinimumSize = new System.Drawing.Size(220, 70);
