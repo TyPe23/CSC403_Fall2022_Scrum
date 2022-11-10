@@ -33,6 +33,13 @@
             this.tmrMoveArrows = new System.Windows.Forms.Timer(this.components);
             this.tmrSpawnArrows = new System.Windows.Forms.Timer(this.components);
             this.tmrMovePlayer = new System.Windows.Forms.Timer(this.components);
+            this.btnAddAttack = new System.Windows.Forms.Button();
+            this.btnAddMagic = new System.Windows.Forms.Button();
+            this.btnAddSpeed = new System.Windows.Forms.Button();
+            this.btnNextLevel = new System.Windows.Forms.Button();
+            this.AttackLabel = new System.Windows.Forms.Label();
+            this.MagicLabel = new System.Windows.Forms.Label();
+            this.SpeedLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblStoryLine
@@ -93,9 +100,99 @@
             this.tmrSpawnArrows.Interval = 5000;
             this.tmrSpawnArrows.Tick += new System.EventHandler(this.tmrSpawnArrows_Tick);
             // 
-            // timer1
+            // tmrMovePlayer
             // 
             this.tmrMovePlayer.Tick += new System.EventHandler(this.tmrMovePlayer_Tick);
+            // 
+            // btnAddAttack
+            // 
+            this.btnAddAttack.Enabled = false;
+            this.btnAddAttack.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAddAttack.Location = new System.Drawing.Point(89, 135);
+            this.btnAddAttack.Name = "btnAddAttack";
+            this.btnAddAttack.Size = new System.Drawing.Size(220, 70);
+            this.btnAddAttack.TabIndex = 4;
+            this.btnAddAttack.Text = "Increase Attack";
+            this.btnAddAttack.UseVisualStyleBackColor = true;
+            this.btnAddAttack.Visible = false;
+            // 
+            // btnAddMagic
+            // 
+            this.btnAddMagic.Enabled = false;
+            this.btnAddMagic.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAddMagic.Location = new System.Drawing.Point(89, 290);
+            this.btnAddMagic.Name = "btnAddMagic";
+            this.btnAddMagic.Size = new System.Drawing.Size(220, 70);
+            this.btnAddMagic.TabIndex = 5;
+            this.btnAddMagic.Text = "Increase Magic";
+            this.btnAddMagic.UseVisualStyleBackColor = true;
+            this.btnAddMagic.Visible = false;
+            // 
+            // btnAddSpeed
+            // 
+            this.btnAddSpeed.Enabled = false;
+            this.btnAddSpeed.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAddSpeed.Location = new System.Drawing.Point(89, 439);
+            this.btnAddSpeed.Name = "btnAddSpeed";
+            this.btnAddSpeed.Size = new System.Drawing.Size(220, 70);
+            this.btnAddSpeed.TabIndex = 6;
+            this.btnAddSpeed.Text = "Increase Speed";
+            this.btnAddSpeed.UseVisualStyleBackColor = true;
+            this.btnAddSpeed.Visible = false;
+            // 
+            // btnNextLevel
+            // 
+            this.btnNextLevel.Enabled = false;
+            this.btnNextLevel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnNextLevel.Location = new System.Drawing.Point(473, 541);
+            this.btnNextLevel.Name = "btnNextLevel";
+            this.btnNextLevel.Size = new System.Drawing.Size(220, 70);
+            this.btnNextLevel.TabIndex = 7;
+            this.btnNextLevel.Text = "Next Level";
+            this.btnNextLevel.UseVisualStyleBackColor = true;
+            this.btnNextLevel.Visible = false;
+            // 
+            // AttackLabel
+            // 
+            this.AttackLabel.AutoSize = true;
+            this.AttackLabel.BackColor = System.Drawing.Color.Gainsboro;
+            this.AttackLabel.Enabled = false;
+            this.AttackLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.AttackLabel.Location = new System.Drawing.Point(362, 135);
+            this.AttackLabel.MinimumSize = new System.Drawing.Size(220, 70);
+            this.AttackLabel.Name = "AttackLabel";
+            this.AttackLabel.Size = new System.Drawing.Size(220, 70);
+            this.AttackLabel.TabIndex = 8;
+            this.AttackLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AttackLabel.Visible = false;
+            // 
+            // MagicLabel
+            // 
+            this.MagicLabel.AutoSize = true;
+            this.MagicLabel.BackColor = System.Drawing.Color.Gainsboro;
+            this.MagicLabel.Enabled = false;
+            this.MagicLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.MagicLabel.Location = new System.Drawing.Point(362, 290);
+            this.MagicLabel.MinimumSize = new System.Drawing.Size(220, 70);
+            this.MagicLabel.Name = "MagicLabel";
+            this.MagicLabel.Size = new System.Drawing.Size(220, 70);
+            this.MagicLabel.TabIndex = 9;
+            this.MagicLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.MagicLabel.Visible = false;
+            // 
+            // SpeedLabel
+            // 
+            this.SpeedLabel.AutoSize = true;
+            this.SpeedLabel.BackColor = System.Drawing.Color.Gainsboro;
+            this.SpeedLabel.Enabled = false;
+            this.SpeedLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SpeedLabel.Location = new System.Drawing.Point(362, 439);
+            this.SpeedLabel.MinimumSize = new System.Drawing.Size(220, 70);
+            this.SpeedLabel.Name = "SpeedLabel";
+            this.SpeedLabel.Size = new System.Drawing.Size(220, 70);
+            this.SpeedLabel.TabIndex = 10;
+            this.SpeedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.SpeedLabel.Visible = false;
             // 
             // FrmMain
             // 
@@ -105,6 +202,13 @@
             this.BackgroundImage = global::TowerDefense_TheRPG.Properties.Resources.title;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1149, 726);
+            this.Controls.Add(this.SpeedLabel);
+            this.Controls.Add(this.MagicLabel);
+            this.Controls.Add(this.AttackLabel);
+            this.Controls.Add(this.btnNextLevel);
+            this.Controls.Add(this.btnAddSpeed);
+            this.Controls.Add(this.btnAddMagic);
+            this.Controls.Add(this.btnAddAttack);
             this.Controls.Add(this.btnStoryLine);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.lblStoryLine);
@@ -114,7 +218,6 @@
             this.Text = "Tower Defense The RPG";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form2_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,5 +234,12 @@
     private System.Windows.Forms.Timer tmrMoveArrows;
     private System.Windows.Forms.Timer tmrSpawnArrows;
         private System.Windows.Forms.Timer tmrMovePlayer;
+        private Button btnAddAttack;
+        private Button btnAddMagic;
+        private Button btnAddSpeed;
+        private Button btnNextLevel;
+        private Label AttackLabel;
+        private Label MagicLabel;
+        private Label SpeedLabel;
     }
 }

@@ -131,9 +131,6 @@ namespace TowerDefense_TheRPG
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             PlayerMove(e.KeyCode);
-        }
-        private void Form2_KeyDown(object sender, KeyEventArgs e)
-        {
             Abilities(e.KeyCode);
         }
 
@@ -177,13 +174,6 @@ namespace TowerDefense_TheRPG
             // otherwise, for whatever reason, the start button retains focus (even when enabled = false)
             // and arrow key presses are ignored and won't move player.
             Focus();
-        }
-        // handles next level button event 
-        private void nextLevel_Click(object sender, EventArgs e)
-        {
-            //NextLevelButton.Visible = false;
-            Level();
-
         }
 
         private void btnStoryLine_Click(object sender, EventArgs e)
