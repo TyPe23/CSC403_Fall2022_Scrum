@@ -77,9 +77,9 @@ namespace TowerDefense_TheRPG
                 }
                 enemies.Add(balloon);
                 enemyCount++;
-                enemyLeft++;// curently on screen/not dead 
+                enemyLeft++;
             }
-            else
+            else if (enemyLeft <= 0)
             {
                 ShowSPMenu();
             }
@@ -147,7 +147,7 @@ namespace TowerDefense_TheRPG
             village.ControlContainer.SendToBack();
             currlevel = 1;
             enemyMax = 5 * currlevel;
-            enemyMax = 1; // for testing levels only 
+            //enemyMax = 1; // for testing levels only 
             enemyCount = 0;
 
             tmrSpawnEnemies.Enabled = true;
@@ -328,7 +328,7 @@ namespace TowerDefense_TheRPG
                     enemy.TakeDamageFrom(player);
                     if (enemy.CurHealth <= 0)
                     {
-                        enemyLeft --;
+                        enemyLeft--;
                         enemy.Hide();
                         int levelBefore = player.Level;
                         int levelAfter = player.Level;
