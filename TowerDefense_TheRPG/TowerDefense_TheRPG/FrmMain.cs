@@ -84,12 +84,14 @@ namespace TowerDefense_TheRPG
                 // might want to display enemyLeft on scrren for user and dev 
                 //if(enemyLeft <= 0) // if there are no more enemys on screen 
                 //{
-                    // show skills secreen 
-                    // Put button and wait for button click 
-                    //nextLevelButton(); 
-                    // after button click remove skills screen and button  
-                    // next level 
-                    Level();
+                // show skills secreen 
+                // Put button and wait for button click 
+                //nextLevelButton(); 
+                // after button click remove skills screen and button  
+                // next level 
+                ShowSPMenu();
+
+                    //Level();
                 //}
             }
         }
@@ -200,6 +202,23 @@ namespace TowerDefense_TheRPG
 
                 tmrTextCrawl.Enabled = false;
             }
+        }
+
+        private void btnAddAttack_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnAddMagic_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnAddSpeed_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnNextLevel_Click(object sender, EventArgs e)
+        {
+            Level();
         }
         #endregion
 
@@ -315,7 +334,6 @@ namespace TowerDefense_TheRPG
                         enemyLeft --;
                         enemy.Hide();
                         int levelBefore = player.Level;
-                        player.GainXP(enemy.XPGiven);
                         int levelAfter = player.Level;
                         if (levelBefore == 1 && levelAfter == 2)
                         {
@@ -388,7 +406,6 @@ namespace TowerDefense_TheRPG
                         if (enemy.CurHealth <= 0)
                         {
                             enemy.Hide();
-                            player.GainXP(enemy.XPGiven);
                         }
                         else
                         {
@@ -497,6 +514,7 @@ namespace TowerDefense_TheRPG
                 default:
                     break;
             }
+            HideSPMenu();
         }
         #endregion
 

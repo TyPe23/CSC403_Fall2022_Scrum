@@ -55,6 +55,8 @@
             // btnStart
             // 
             this.btnStart.AutoSize = true;
+            this.btnStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnStart.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnStart.Location = new System.Drawing.Point(315, 617);
             this.btnStart.Name = "btnStart";
@@ -81,6 +83,8 @@
             // btnStoryLine
             // 
             this.btnStoryLine.AutoSize = true;
+            this.btnStoryLine.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnStoryLine.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnStoryLine.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnStoryLine.Location = new System.Drawing.Point(630, 617);
             this.btnStoryLine.Name = "btnStoryLine";
@@ -107,6 +111,8 @@
             // btnAddAttack
             // 
             this.btnAddAttack.Enabled = false;
+            this.btnAddAttack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnAddAttack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnAddAttack.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAddAttack.Location = new System.Drawing.Point(89, 135);
             this.btnAddAttack.Name = "btnAddAttack";
@@ -115,10 +121,13 @@
             this.btnAddAttack.Text = "Increase Attack";
             this.btnAddAttack.UseVisualStyleBackColor = true;
             this.btnAddAttack.Visible = false;
+            this.btnAddAttack.Click += new System.EventHandler(this.btnAddAttack_Click);
             // 
             // btnAddMagic
             // 
             this.btnAddMagic.Enabled = false;
+            this.btnAddMagic.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnAddMagic.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnAddMagic.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAddMagic.Location = new System.Drawing.Point(89, 290);
             this.btnAddMagic.Name = "btnAddMagic";
@@ -127,10 +136,13 @@
             this.btnAddMagic.Text = "Increase Magic";
             this.btnAddMagic.UseVisualStyleBackColor = true;
             this.btnAddMagic.Visible = false;
+            this.btnAddMagic.Click += new System.EventHandler(this.btnAddMagic_Click);
             // 
             // btnAddSpeed
             // 
             this.btnAddSpeed.Enabled = false;
+            this.btnAddSpeed.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnAddSpeed.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnAddSpeed.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAddSpeed.Location = new System.Drawing.Point(89, 439);
             this.btnAddSpeed.Name = "btnAddSpeed";
@@ -139,6 +151,7 @@
             this.btnAddSpeed.Text = "Increase Speed";
             this.btnAddSpeed.UseVisualStyleBackColor = true;
             this.btnAddSpeed.Visible = false;
+            this.btnAddSpeed.Click += new System.EventHandler(this.btnAddSpeed_Click);
             // 
             // btnNextLevel
             // 
@@ -151,6 +164,7 @@
             this.btnNextLevel.Text = "Next Level";
             this.btnNextLevel.UseVisualStyleBackColor = true;
             this.btnNextLevel.Visible = false;
+            this.btnNextLevel.Click += new System.EventHandler(this.btnNextLevel_Click);
             // 
             // AttackLabel
             // 
