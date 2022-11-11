@@ -226,6 +226,17 @@ namespace TowerDefense_TheRPG.code {
       
 
     }
+
+        /// <summary>
+        /// Helper for changing the postiton of an object that has already been made specificly Enemys 
+        /// </summary>
+        /// <param name="x">X position on the screen</param>
+        /// <param name="y">Y position on the screen</param>
+        public void changePosition(int x, int y)
+        {
+            X = x;
+            Y = y;
+        }
         
 
         /// <summary>

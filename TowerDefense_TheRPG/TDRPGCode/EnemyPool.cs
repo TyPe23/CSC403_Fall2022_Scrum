@@ -14,7 +14,7 @@ namespace TowerDefense_TheRPG
 
         // generates a pool of poolSize and randomly selects ballons (all set to position 0,0)
         // (Do at start of each level) 
-        public void Start() // add weights 
+        public void Start(int level) // add weights 
         {
             rand = new Random();
             for (int i = 0; i < poolSize; i++)
@@ -39,6 +39,7 @@ namespace TowerDefense_TheRPG
                 }
                 //enemies.Add(balloon);
                 // add to que
+                balloon.Hide();// keep invisible 
                 pool.Enqueue(balloon);
             }
         }
@@ -51,13 +52,15 @@ namespace TowerDefense_TheRPG
         // get enemy if one exist else make new one - making new one extends queue size 
         public Enemy GetEnemy()
         {
-            if (pool.Count > 0) // if there are any 
             {
-                return pool.Dequeue(); // get next enemy
-            }
-            else
-            {
-                return null;
+                if (pool.Count > 0) // if there are any 
+                {
+                    return pool.Dequeue(); // get next enemy
+                }
+                else
+                {
+                    return null;
+                }
             }
         }
 

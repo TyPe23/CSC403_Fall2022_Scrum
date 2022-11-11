@@ -22,6 +22,8 @@ namespace TowerDefense_TheRPG
         private bool downMove = false;
         private bool leftMove = false;
         private bool rightMove = false;
+        private EnemyPool enemyPool = new EnemyPool();
+        private int enemyTime=0;
 
         #endregion
 
@@ -55,11 +57,17 @@ namespace TowerDefense_TheRPG
 
         private void tmrSpawnEnemies_Tick(object sender, EventArgs e)
         {
-            if (enemyCount < enemyMax) // max per level 
+
+            if (enemyCount < enemyMax && enemyTime < 200) // max per level 
             {
+               
                 GenEnemyPos(out int x, out int y);
                 int enemyType = rand.Next(4);
                 Enemy balloon;
+                balloon = enemyPool.GetEnemy();
+                balloon.changePosition(x,y); // change position 
+                balloon.Show(); // display
+                /*
                 switch (enemyType)
                 {
                     case 0:
@@ -75,14 +83,19 @@ namespace TowerDefense_TheRPG
                         balloon = Enemy.MakeOrangeBalloon(x, y);
                         break;
                 }
+                */
                 enemies.Add(balloon);
                 enemyCount++;
                 enemyLeft++;
+                enemyTime = 0;
             }
             else if (enemyLeft <= 0)
             {
                 ShowSPMenu();
+                enemyTime = 0;
+                enemyLeft = 0;
             }
+            enemyTime++;
         }
 
         private void tmrMoveEnemies_Tick(object sender, EventArgs e)
@@ -149,6 +162,7 @@ namespace TowerDefense_TheRPG
             enemyMax = 5 * currlevel;
             //enemyMax = 1; // for testing levels only 
             enemyCount = 0;
+            enemyPool.Start(currlevel); // start pool
 
             tmrSpawnEnemies.Enabled = true;
             tmrMoveEnemies.Enabled = true;
@@ -218,6 +232,7 @@ namespace TowerDefense_TheRPG
         #region Helper functions
         private void ShowSPMenu()
         {
+            enemyPool.empty();
             AttackLabel.Text = "Attack: " + player.Attack;
             MagicLabel.Text = "Magic: " + player.Magic;
             SpeedLabel.Text = "Speed: " + player.MoveSpeed;
@@ -239,6 +254,7 @@ namespace TowerDefense_TheRPG
             btnNextLevel.Enabled = true;
             ShowStory();
             InBetweenLevels.Visible = true;
+            enemyPool.Start(currlevel);
 
         }
         private void HideSPMenu()
@@ -405,6 +421,7 @@ namespace TowerDefense_TheRPG
                 if (enemy.CurHealth <= 0)
                 {
                     enemiesToRemove.Add(enemy);
+                    enemyPool.ReturnEnemy(enemy);// send back too pool
                 }
             }
 
