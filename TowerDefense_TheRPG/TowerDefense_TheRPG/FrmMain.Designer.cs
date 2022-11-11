@@ -220,7 +220,7 @@
             // tmrCooldown1
             // 
             this.tmrCooldown1.Enabled = true;
-            this.tmrCooldown1.Interval = 5000;
+            this.tmrCooldown1.Interval = 1000;
             this.tmrCooldown1.Tick += new System.EventHandler(this.Cooldown1_Tick);
             // 
             // FrmMain
