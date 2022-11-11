@@ -227,6 +227,8 @@ namespace TowerDefense_TheRPG
         }
         private void btnNextLevel_Click(object sender, EventArgs e)
         {
+            enemyPool.empty();
+            enemyPool.Start(currlevel);
             player.GainLevel();
             Level();
         }
@@ -235,7 +237,7 @@ namespace TowerDefense_TheRPG
         #region Helper functions
         private void ShowSPMenu()
         {
-            enemyPool.empty();
+            
             AttackLabel.Text = "Attack: " + player.Attack;
             MagicLabel.Text = "Magic: " + player.Magic;
             SpeedLabel.Text = "Speed: " + player.MoveSpeed;
@@ -256,8 +258,7 @@ namespace TowerDefense_TheRPG
 
             btnNextLevel.Enabled = true;
             ShowStory();
-            InBetweenLevels.Visible = true;
-            enemyPool.Start(currlevel);
+       
 
         }
         private void HideSPMenu()
@@ -285,12 +286,15 @@ namespace TowerDefense_TheRPG
             switch (currlevel) {
                 case 5:
                     InBetweenLevels.Text = "Peaches has successfully defended this town[5], time to move to the next one";
+                    InBetweenLevels.Visible = true;
                     break;
                 case 10:
                     InBetweenLevels.Text = "Peaches has successfully defended this town[10], time to move to the next one";
+                    InBetweenLevels.Visible = true;
                     break;
                 case 15:
                     InBetweenLevels.Text = "Peaches has successfully defended this town[15], time to move to the next one";
+                    InBetweenLevels.Visible = true;
                     break;
                 default:
                     break;
@@ -539,19 +543,19 @@ namespace TowerDefense_TheRPG
 
             switch (currlevel)
             {
-                case 5:
+                case 6:
                     village.Hide();
                     village = new Village(Width / 2 - 110, Height / 2 - 65, 220, 135);
                     village.SetMaxHealth(7.5f);
                     break;
 
-                case 10:
+                case 11:
                     village.Hide();
                     village = new Village(Width / 2 - 150, Height / 2 - 85, 295, 175);
                     village.SetMaxHealth(10.0f);
                     break;
 
-                case 15:
+                case 16:
                     village.Hide();
                     village = new Village(Width / 2 - 200, Height / 2 - 150, 390, 235);
                     village.SetMaxHealth(15.0f);
