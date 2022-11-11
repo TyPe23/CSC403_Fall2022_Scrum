@@ -224,6 +224,8 @@ namespace TowerDefense_TheRPG
         }
         private void btnNextLevel_Click(object sender, EventArgs e)
         {
+            enemyPool.empty();
+            enemyPool.Start(currlevel);
             player.GainLevel();
             Level();
         }
@@ -232,7 +234,7 @@ namespace TowerDefense_TheRPG
         #region Helper functions
         private void ShowSPMenu()
         {
-            enemyPool.empty();
+            
             AttackLabel.Text = "Attack: " + player.Attack;
             MagicLabel.Text = "Magic: " + player.Magic;
             SpeedLabel.Text = "Speed: " + player.MoveSpeed;
@@ -253,7 +255,7 @@ namespace TowerDefense_TheRPG
 
             btnNextLevel.Enabled = true;
             ShowStory();
-            enemyPool.Start(currlevel);
+       
 
         }
         private void HideSPMenu()
