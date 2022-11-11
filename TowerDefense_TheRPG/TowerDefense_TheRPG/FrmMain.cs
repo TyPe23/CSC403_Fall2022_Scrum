@@ -237,6 +237,9 @@ namespace TowerDefense_TheRPG
             btnAddSpeed.Enabled = true;
 
             btnNextLevel.Enabled = true;
+            ShowStory();
+            InBetweenLevels.Visible = true;
+
         }
         private void HideSPMenu()
         {
@@ -255,6 +258,27 @@ namespace TowerDefense_TheRPG
             btnAddSpeed.Enabled = false;
 
             btnNextLevel.Enabled = false;
+            InBetweenLevels.Visible = false;
+        }
+
+        private void ShowStory() {
+
+            switch (currlevel) {
+                case 5:
+                    InBetweenLevels.Text = "Peaches has successfully defended this town[5], time to move to the next one";
+                    break;
+                case 10:
+                    InBetweenLevels.Text = "Peaches has successfully defended this town[10], time to move to the next one";
+                    break;
+                case 15:
+                    InBetweenLevels.Text = "Peaches has successfully defended this town[15], time to move to the next one";
+                    break;
+                default:
+                    break;
+
+
+            }
+
         }
         private void Storyline()
         {

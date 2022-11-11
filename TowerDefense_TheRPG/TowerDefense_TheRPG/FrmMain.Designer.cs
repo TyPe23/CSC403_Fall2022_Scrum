@@ -40,6 +40,7 @@
             this.AttackLabel = new System.Windows.Forms.Label();
             this.MagicLabel = new System.Windows.Forms.Label();
             this.SpeedLabel = new System.Windows.Forms.Label();
+            this.InBetweenLevels = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblStoryLine
@@ -205,6 +206,16 @@
             this.SpeedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.SpeedLabel.Visible = false;
             // 
+            // InBetweenLevels
+            // 
+            this.InBetweenLevels.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.InBetweenLevels.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.InBetweenLevels.Location = new System.Drawing.Point(750, 150);
+            this.InBetweenLevels.Name = "InBetweenLevels";
+            this.InBetweenLevels.Size = new System.Drawing.Size(300, 300);
+            this.InBetweenLevels.TabIndex = 11;
+            this.InBetweenLevels.Visible = false;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -213,6 +224,7 @@
             this.BackgroundImage = global::TowerDefense_TheRPG.Properties.Resources.title;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1149, 726);
+            this.Controls.Add(this.InBetweenLevels);
             this.Controls.Add(this.SpeedLabel);
             this.Controls.Add(this.MagicLabel);
             this.Controls.Add(this.AttackLabel);
@@ -252,5 +264,6 @@
         private Label AttackLabel;
         private Label MagicLabel;
         private Label SpeedLabel;
+        private Label InBetweenLevels;
     }
 }
