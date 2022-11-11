@@ -535,19 +535,19 @@ namespace TowerDefense_TheRPG
 
             switch (currlevel)
             {
-                case 5:
+                case 6:
                     village.Hide();
                     village = new Village(Width / 2 - 110, Height / 2 - 65, 220, 135);
                     village.SetMaxHealth(7.5f);
                     break;
 
-                case 10:
+                case 11:
                     village.Hide();
                     village = new Village(Width / 2 - 150, Height / 2 - 85, 295, 175);
                     village.SetMaxHealth(10.0f);
                     break;
 
-                case 15:
+                case 16:
                     village.Hide();
                     village = new Village(Width / 2 - 200, Height / 2 - 150, 390, 235);
                     village.SetMaxHealth(15.0f);
