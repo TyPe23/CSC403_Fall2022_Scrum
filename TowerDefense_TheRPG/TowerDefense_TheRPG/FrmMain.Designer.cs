@@ -40,9 +40,7 @@
             this.AttackLabel = new System.Windows.Forms.Label();
             this.MagicLabel = new System.Windows.Forms.Label();
             this.SpeedLabel = new System.Windows.Forms.Label();
-            this.Level5Story = new System.Windows.Forms.Label();
-            this.level10 = new System.Windows.Forms.Label();
-            this.level15 = new System.Windows.Forms.Label();
+            this.InBetweenLevels = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblStoryLine
@@ -208,38 +206,15 @@
             this.SpeedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.SpeedLabel.Visible = false;
             // 
-            // Level5Story
+            // InBetweenLevels
             // 
-            this.Level5Story.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Level5Story.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Level5Story.Location = new System.Drawing.Point(750, 150);
-            this.Level5Story.Name = "Level5Story";
-            this.Level5Story.Size = new System.Drawing.Size(300, 300);
-            this.Level5Story.TabIndex = 11;
-            this.Level5Story.Text = "Peaches has successfully defended this town[5], time to move to the next one";
-            this.Level5Story.Visible = false;
-            // 
-            // level10
-            // 
-            this.level10.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.level10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.level10.Location = new System.Drawing.Point(750, 150);
-            this.level10.Name = "level10";
-            this.level10.Size = new System.Drawing.Size(300, 300);
-            this.level10.TabIndex = 12;
-            this.level10.Text = "Peaches has successfully defended this town[10], time to move to the next one\r\n";
-            this.level10.Visible = false;
-            // 
-            // level15
-            // 
-            this.level15.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.level15.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.level15.Location = new System.Drawing.Point(750, 150);
-            this.level15.Name = "level15";
-            this.level15.Size = new System.Drawing.Size(300, 300);
-            this.level15.TabIndex = 13;
-            this.level15.Text = "Peaches has successfully defended this town[15], time to move to the next one\r\n";
-            this.level15.Visible = false;
+            this.InBetweenLevels.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.InBetweenLevels.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.InBetweenLevels.Location = new System.Drawing.Point(750, 150);
+            this.InBetweenLevels.Name = "InBetweenLevels";
+            this.InBetweenLevels.Size = new System.Drawing.Size(300, 300);
+            this.InBetweenLevels.TabIndex = 11;
+            this.InBetweenLevels.Visible = false;
             // 
             // FrmMain
             // 
@@ -249,9 +224,7 @@
             this.BackgroundImage = global::TowerDefense_TheRPG.Properties.Resources.title;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1149, 726);
-            this.Controls.Add(this.level15);
-            this.Controls.Add(this.level10);
-            this.Controls.Add(this.Level5Story);
+            this.Controls.Add(this.InBetweenLevels);
             this.Controls.Add(this.SpeedLabel);
             this.Controls.Add(this.MagicLabel);
             this.Controls.Add(this.AttackLabel);
@@ -291,8 +264,6 @@
         private Label AttackLabel;
         private Label MagicLabel;
         private Label SpeedLabel;
-        private Label Level5Story;
-        private Label level10;
-        private Label level15;
+        private Label InBetweenLevels;
     }
 }
