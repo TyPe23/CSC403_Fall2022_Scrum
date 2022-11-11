@@ -22,8 +22,11 @@ namespace TowerDefense_TheRPG
         private bool downMove = false;
         private bool leftMove = false;
         private bool rightMove = false;
+        private bool abil1 = true;
         private EnemyPool enemyPool = new EnemyPool();
         private int enemyTime=0;
+        private int cooldownTime=0;
+
 
         #endregion
 
@@ -495,7 +498,12 @@ namespace TowerDefense_TheRPG
             switch (keyCode)
             {
                 case Keys.Space:
-                    FireArrows();
+                    if (abil1)
+                    {
+                        FireArrows();
+                        abil1 = false;
+                    }
+                    
                     break;
             }
         }
@@ -557,5 +565,18 @@ namespace TowerDefense_TheRPG
         #endregion
 
         #endregion
+
+        private void Cooldown1_Tick(object sender, EventArgs e)
+        {
+            if (abil1 == false)
+            {
+                if (cooldownTime > 1)
+                {
+                    abil1 = true;
+                    cooldownTime = 0;
+                }
+                cooldownTime++;
+            }
+        }
     }
 }
