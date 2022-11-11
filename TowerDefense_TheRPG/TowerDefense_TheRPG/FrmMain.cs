@@ -253,7 +253,6 @@ namespace TowerDefense_TheRPG
 
             btnNextLevel.Enabled = true;
             ShowStory();
-            InBetweenLevels.Visible = true;
             enemyPool.Start(currlevel);
 
         }
@@ -282,12 +281,15 @@ namespace TowerDefense_TheRPG
             switch (currlevel) {
                 case 5:
                     InBetweenLevels.Text = "Peaches has successfully defended this town[5], time to move to the next one";
+                    InBetweenLevels.Visible = true;
                     break;
                 case 10:
                     InBetweenLevels.Text = "Peaches has successfully defended this town[10], time to move to the next one";
+                    InBetweenLevels.Visible = true;
                     break;
                 case 15:
                     InBetweenLevels.Text = "Peaches has successfully defended this town[15], time to move to the next one";
+                    InBetweenLevels.Visible = true;
                     break;
                 default:
                     break;
