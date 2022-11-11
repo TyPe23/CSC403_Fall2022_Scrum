@@ -237,6 +237,16 @@ namespace TowerDefense_TheRPG
             btnAddSpeed.Enabled = true;
 
             btnNextLevel.Enabled = true;
+
+            if (currlevel == 5) {
+                Level5Story.Visible = true;
+            }
+            else if (currlevel == 10) {
+                level10.Visible = true;
+            }
+            else if (currlevel == 15) {
+                level15.Visible = true;
+            }
         }
         private void HideSPMenu()
         {
@@ -255,6 +265,9 @@ namespace TowerDefense_TheRPG
             btnAddSpeed.Enabled = false;
 
             btnNextLevel.Enabled = false;
+            Level5Story.Visible = false;
+            level10.Visible = false;
+            level15.Visible=false;
         }
         private void Storyline()
         {
