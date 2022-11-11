@@ -1,3 +1,4 @@
+using System.DirectoryServices;
 using TowerDefense_TheRPG.code;
 using TowerDefense_TheRPG.Properties;
 
@@ -17,10 +18,13 @@ namespace TowerDefense_TheRPG
         public int currlevel;
         private int enemyCount;
         private int enemyMax;
+        private int enemyLeft;
         private bool upMove = false;
         private bool downMove = false;
         private bool leftMove = false;
         private bool rightMove = false;
+        private EnemyPool enemyPool = new EnemyPool();
+        private int enemyTime=0;
 
         #endregion
 
@@ -54,11 +58,17 @@ namespace TowerDefense_TheRPG
 
         private void tmrSpawnEnemies_Tick(object sender, EventArgs e)
         {
-            if (enemyCount < enemyMax)
+
+            if (enemyCount < enemyMax && enemyTime < 200) // max per level 
             {
+               
                 GenEnemyPos(out int x, out int y);
                 int enemyType = rand.Next(4);
                 Enemy balloon;
+                balloon = enemyPool.GetEnemy();
+                balloon.changePosition(x,y); // change position 
+                balloon.Show(); // display
+                /*
                 switch (enemyType)
                 {
                     case 0:
@@ -74,19 +84,21 @@ namespace TowerDefense_TheRPG
                         balloon = Enemy.MakeOrangeBalloon(x, y);
                         break;
                 }
+                */
                 enemies.Add(balloon);
                 enemyCount++;
+                enemyLeft++;
+                enemyTime = 0;
             }
-            else
+            else if (enemyLeft <= 0)
             {
-                // place show skill menu method call here
-
-                // place show button method call here
-                // button should call Level() as FrmMain.Level();
-
-                Level();
+                ShowSPMenu();
+                enemyTime = 0;
+                enemyLeft = 0;
             }
+            enemyTime++;
         }
+
         private void tmrMoveEnemies_Tick(object sender, EventArgs e)
         {
             MoveEnemies();
@@ -99,13 +111,6 @@ namespace TowerDefense_TheRPG
         {
             MoveArrows();
         }
-        
-        
-        private void tmrMoveFireballs_Tick(object sender, EventArgs e)
-        {
-            MoveFireballs();
-        }
-
         private void tmrMovePlayer_Tick(object sender, EventArgs e)
         {
             if (player.Y > 0 && upMove)
@@ -131,9 +136,6 @@ namespace TowerDefense_TheRPG
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             PlayerMove(e.KeyCode);
-        }
-        private void Form2_KeyDown(object sender, KeyEventArgs e)
-        {
             Abilities(e.KeyCode);
         }
 
@@ -160,7 +162,9 @@ namespace TowerDefense_TheRPG
             village.ControlContainer.SendToBack();
             currlevel = 1;
             enemyMax = 5 * currlevel;
+            //enemyMax = 1; // for testing levels only 
             enemyCount = 0;
+            enemyPool.Start(currlevel); // start pool
 
             tmrSpawnEnemies.Enabled = true;
             tmrMoveEnemies.Enabled = true;
@@ -179,6 +183,7 @@ namespace TowerDefense_TheRPG
             // and arrow key presses are ignored and won't move player.
             Focus();
         }
+
         private void btnStoryLine_Click(object sender, EventArgs e)
         {
             if (btnStoryLine.Text.StartsWith("Show"))
@@ -204,9 +209,96 @@ namespace TowerDefense_TheRPG
                 tmrTextCrawl.Enabled = false;
             }
         }
+
+        private void btnAddAttack_Click(object sender, EventArgs e)
+        {
+            AttackLabel.Text = "Attack: " + player.Attack;
+            player.AddAttack();
+        }
+        private void btnAddMagic_Click(object sender, EventArgs e)
+        {
+            MagicLabel.Text = "Magic: " + player.Magic;
+            player.AddMagic();
+        }
+        private void btnAddSpeed_Click(object sender, EventArgs e)
+        {
+            SpeedLabel.Text = "Speed: " + player.MoveSpeed;
+            player.AddSpeed();
+        }
+        private void btnNextLevel_Click(object sender, EventArgs e)
+        {
+            player.GainLevel();
+            Level();
+        }
         #endregion
 
         #region Helper functions
+        private void ShowSPMenu()
+        {
+            enemyPool.empty();
+            AttackLabel.Text = "Attack: " + player.Attack;
+            MagicLabel.Text = "Magic: " + player.Magic;
+            SpeedLabel.Text = "Speed: " + player.MoveSpeed;
+
+            btnAddAttack.Visible = true;
+            btnAddMagic.Visible = true;
+            btnAddSpeed.Visible = true;
+
+            AttackLabel.Visible = true;
+            MagicLabel.Visible = true;
+            SpeedLabel.Visible = true;
+
+            btnNextLevel.Visible = true;
+
+            btnAddAttack.Enabled = true;
+            btnAddMagic.Enabled = true;
+            btnAddSpeed.Enabled = true;
+
+            btnNextLevel.Enabled = true;
+            ShowStory();
+            InBetweenLevels.Visible = true;
+            enemyPool.Start(currlevel);
+
+        }
+        private void HideSPMenu()
+        {
+            btnAddAttack.Visible = false;
+            btnAddMagic.Visible = false;
+            btnAddSpeed.Visible = false;
+
+            AttackLabel.Visible = false;
+            MagicLabel.Visible = false;
+            SpeedLabel.Visible = false;
+
+            btnNextLevel.Visible = false;
+
+            btnAddAttack.Enabled = false;
+            btnAddMagic.Enabled = false;
+            btnAddSpeed.Enabled = false;
+
+            btnNextLevel.Enabled = false;
+            InBetweenLevels.Visible = false;
+        }
+
+        private void ShowStory() {
+
+            switch (currlevel) {
+                case 5:
+                    InBetweenLevels.Text = "Peaches has successfully defended this town[5], time to move to the next one";
+                    break;
+                case 10:
+                    InBetweenLevels.Text = "Peaches has successfully defended this town[10], time to move to the next one";
+                    break;
+                case 15:
+                    InBetweenLevels.Text = "Peaches has successfully defended this town[15], time to move to the next one";
+                    break;
+                default:
+                    break;
+
+
+            }
+
+        }
         private void Storyline()
         {
             // TODO: probably should be read from a resource text file
@@ -279,9 +371,9 @@ namespace TowerDefense_TheRPG
                     enemy.TakeDamageFrom(player);
                     if (enemy.CurHealth <= 0)
                     {
+                        enemyLeft--;
                         enemy.Hide();
                         int levelBefore = player.Level;
-                        player.GainXP(enemy.XPGiven);
                         int levelAfter = player.Level;
                         if (levelBefore == 1 && levelAfter == 2)
                         {
@@ -332,6 +424,7 @@ namespace TowerDefense_TheRPG
                 if (enemy.CurHealth <= 0)
                 {
                     enemiesToRemove.Add(enemy);
+                    enemyPool.ReturnEnemy(enemy);// send back too pool
                 }
             }
 
@@ -354,7 +447,6 @@ namespace TowerDefense_TheRPG
                         if (enemy.CurHealth <= 0)
                         {
                             enemy.Hide();
-                            player.GainXP(enemy.XPGiven);
                         }
                         else
                         {
@@ -420,42 +512,6 @@ namespace TowerDefense_TheRPG
         }
         private void PlayerMove(Keys keyCode)
         {
-            /*switch (keyCode)
-            {
-                case Keys.Up:
-                case Keys.W:
-                    if (player.Y > 0)
-                    {
-                        player.Move(0, -1);
-                    }
-                    break;
-                case Keys.Down:
-                case Keys.S:
-                    if (player.Y < Height - (player.H * 1.5))
-                    {
-                        player.Move(0, +1);
-                    }
-                    break;
-                case Keys.Left:
-                case Keys.A:
-                    if (player.X > 0)
-                    {
-                        player.Move(-1, 0);
-                    }
-                    break;
-                case Keys.Right:
-                case Keys.D:
-                    if (player.X < Width - (player.W * 1.5))
-                    {
-                        player.Move(+1, 0);
-                    }
-                    break;
-            }*/
-            upMove = false;
-            downMove = false;
-            leftMove = false;
-            rightMove = false;
-
             switch (keyCode)
             {
                 case Keys.Up:
@@ -481,23 +537,39 @@ namespace TowerDefense_TheRPG
             switch (keyCode)
             {
                 case Keys.Space:
-                    FireBall();
+                    FireArrows();
                     break;
             }
         }
         private void PlayerStopMove(Keys keyCode)
         {
-            upMove = false;
-            downMove = false;
-            leftMove = false;
-            rightMove = false;
+            switch (keyCode)
+            {
+                case Keys.Up:
+                case Keys.W:
+                    upMove = false;
+                    break;
+                case Keys.Down:
+                case Keys.S:
+                    downMove = false;
+                    break;
+                case Keys.Left:
+                case Keys.A:
+                    leftMove = false;
+                    break;
+                case Keys.Right:
+                case Keys.D:
+                    rightMove = false;
+                    break;
+            }
         }
 
         private void Level()
         {
             currlevel++;
-            enemyMax = 5 * currlevel;
+            //enemyMax = 5 * currlevel;
             enemyCount = 0;
+            enemyLeft = 0;
 
             switch (currlevel)
             {
@@ -522,6 +594,7 @@ namespace TowerDefense_TheRPG
                 default:
                     break;
             }
+            HideSPMenu();
         }
         #endregion
 

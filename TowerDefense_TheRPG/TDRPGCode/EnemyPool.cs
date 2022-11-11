@@ -14,13 +14,34 @@ namespace TowerDefense_TheRPG
 
         // generates a pool of poolSize and randomly selects ballons (all set to position 0,0)
         // (Do at start of each level) 
-        public void Start() // add weights 
+        public void Start(int level) // add weights 
         {
+            int Weight = 0;
+            switch (level)
+            { // every 2 levels up dificulty 
+                case 0:
+                case 1:
+                    Weight = 0;
+                    break;
+                case 2:
+                case 3:
+                    Weight = 1;
+                    break;
+                case 4:
+                case 5:
+                    Weight = 2;
+                    break;
+                default:
+                    Weight = 4;
+                    break;
+            }
+
+
             rand = new Random();
             for (int i = 0; i < poolSize; i++)
             {
                 //GenEnemyPos(out int x, out int y);
-                int enemyType = rand.Next(4);
+                int enemyType = rand.Next(Weight);
                 Enemy balloon;
                 switch (enemyType)
                 {
@@ -39,6 +60,7 @@ namespace TowerDefense_TheRPG
                 }
                 //enemies.Add(balloon);
                 // add to que
+                balloon.Hide();// keep invisible 
                 pool.Enqueue(balloon);
             }
         }
@@ -51,13 +73,15 @@ namespace TowerDefense_TheRPG
         // get enemy if one exist else make new one - making new one extends queue size 
         public Enemy GetEnemy()
         {
-            if (pool.Count > 0) // if there are any 
             {
-                return pool.Dequeue(); // get next enemy
-            }
-            else
-            {
-                return null;
+                if (pool.Count > 0) // if there are any 
+                {
+                    return pool.Dequeue(); // get next enemy
+                }
+                else
+                {
+                    return null;
+                }
             }
         }
 
