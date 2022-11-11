@@ -16,32 +16,11 @@ namespace TowerDefense_TheRPG
         // (Do at start of each level) 
         public void Start(int level) // add weights 
         {
-            int Weight = 0;
-            switch (level)
-            { // every 2 levels up dificulty 
-                case 0:
-                case 1:
-                    Weight = 0;
-                    break;
-                case 2:
-                case 3:
-                    Weight = 1;
-                    break;
-                case 4:
-                case 5:
-                    Weight = 2;
-                    break;
-                default:
-                    Weight = 4;
-                    break;
-            }
-
-
             rand = new Random();
             for (int i = 0; i < poolSize; i++)
             {
                 //GenEnemyPos(out int x, out int y);
-                int enemyType = rand.Next(Weight);
+                int enemyType = rand.Next(4);
                 Enemy balloon;
                 switch (enemyType)
                 {
