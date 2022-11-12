@@ -25,6 +25,7 @@ namespace TowerDefense_TheRPG
         private bool abil1 = true;
         private EnemyPool enemyPool = new EnemyPool();
         private int enemyTime=0;
+        private int loopTime = 0;
         private int cooldownTime=0;
 
 
@@ -63,42 +64,41 @@ namespace TowerDefense_TheRPG
 
             if (enemyCount < enemyMax && enemyTime < 200) // max per level 
             {
-               
+
                 GenEnemyPos(out int x, out int y);
                 int enemyType = rand.Next(4);
                 Enemy balloon;
                 balloon = enemyPool.GetEnemy();
-                balloon.changePosition(x,y); // change position 
-                balloon.Show(); // display
-                /*
-                switch (enemyType)
-                {
-                    case 0:
-                        balloon = Enemy.MakeRedBalloon(x, y);
-                        break;
-                    case 1:
-                        balloon = Enemy.MakePurpleBalloon(x, y);
-                        break;
-                    case 2:
-                        balloon = Enemy.MakeGrayBalloon(x, y);
-                        break;
-                    default:
-                        balloon = Enemy.MakeOrangeBalloon(x, y);
-                        break;
+                if (balloon != null){ 
+                    balloon.changePosition(x, y); // change position 
+                    balloon.Show(); // display
+                    
+                    enemies.Add(balloon);
+                    enemyCount++;
+                    enemyLeft++;
+                    enemyTime = 0;
                 }
-                */
-                enemies.Add(balloon);
-                enemyCount++;
-                enemyLeft++;
-                enemyTime = 0;
             }
-            else if (enemyLeft <= 0)
+            else if (enemyLeft <= 0) // all enemies kileld some times does not work 
             {
                 ShowSPMenu();
                 enemyTime = 0;
                 enemyLeft = 0;
+                loopTime = 0;
+            }
+            else if (loopTime > 5000) // after some time can check list of currently moving enemies 
+            {
+                if (enemies.Count == 0) // if empty level is over 
+                {
+                    ShowSPMenu();
+                    enemyTime = 0;
+                    enemyLeft = 0;
+                    loopTime = 0;
+                }
             }
             enemyTime++;
+            loopTime++;
+
         }
 
         private void tmrMoveEnemies_Tick(object sender, EventArgs e)
@@ -227,10 +227,11 @@ namespace TowerDefense_TheRPG
         }
         private void btnNextLevel_Click(object sender, EventArgs e)
         {
+            Level();
             enemyPool.empty();
+            enemyPool = new EnemyPool();
             enemyPool.Start(currlevel);
             player.GainLevel();
-            Level();
         }
         #endregion
 
@@ -537,7 +538,7 @@ namespace TowerDefense_TheRPG
         private void Level()
         {
             currlevel++;
-            //enemyMax = 5 * currlevel;
+            enemyMax = 5 * currlevel;
             enemyCount = 0;
             enemyLeft = 0;
 

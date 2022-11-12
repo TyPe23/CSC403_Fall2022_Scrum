@@ -46,16 +46,16 @@ namespace TowerDefense_TheRPG
                 switch (enemyType)
                 {
                     case 0:
-                        balloon = Enemy.MakeRedBalloon(0, 0);
+                        balloon = Enemy.MakeRedBalloon(-50, 0);
                         break;
                     case 1:
-                        balloon = Enemy.MakePurpleBalloon(0, 0);
+                        balloon = Enemy.MakePurpleBalloon(-50, 0);
                         break;
                     case 2:
-                        balloon = Enemy.MakeGrayBalloon(0, 0);
+                        balloon = Enemy.MakeGrayBalloon(-50, 0);
                         break;
                     default:
-                        balloon = Enemy.MakeOrangeBalloon(0, 0);
+                        balloon = Enemy.MakeOrangeBalloon(-50, 0);
                         break;
                 }
                 //enemies.Add(balloon);
@@ -67,6 +67,22 @@ namespace TowerDefense_TheRPG
         // return enemy after death 
         public void ReturnEnemy(Enemy balloon)
         {
+            if (balloon.Name == "redballoon") // heal the ball0on 
+            {
+                balloon.SetMaxHealth(0.1f);
+            }
+            else if(balloon.Name == "purpleballoon")
+            {
+                balloon.SetMaxHealth(0.5f);
+            }
+            else if (balloon.Name == "grayballoon")
+            {
+                balloon.SetMaxHealth(1.0f);
+            }
+            else if (balloon.Name == "orangeballoon")
+            {
+                balloon.SetMaxHealth(0.2f);
+            }
             pool.Enqueue(balloon);
         }
 
@@ -88,7 +104,10 @@ namespace TowerDefense_TheRPG
         // clear the queue (Do after level compleated)
         public void empty()
         {
-            pool.Clear();
+            //pool.Clear();
+            pool = null;
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
         }
     }
 }
