@@ -47,11 +47,12 @@
       {
          name = "fireball_down";
        }
+            
       ControlCharacter = new PictureBox() {
         BackgroundImage = ControlManager.ResMan.GetObject(name) as Bitmap,
         BackgroundImageLayout = ImageLayout.Stretch,
-        Width = 30,
-        Height = 30,
+        Width = 50,
+        Height = 50,
         BackColor = Color.Transparent,
       };
       ControlManager.Form.Controls.Add(ControlCharacter);
