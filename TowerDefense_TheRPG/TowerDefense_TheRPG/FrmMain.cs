@@ -262,7 +262,7 @@ namespace TowerDefense_TheRPG
 
             btnNextLevel.Enabled = true;
             ShowStory();
-       
+
 
         }
         private void HideSPMenu()
@@ -289,15 +289,15 @@ namespace TowerDefense_TheRPG
 
             switch (currlevel) {
                 case 5:
-                    InBetweenLevels.Text = "Peaches has successfully defended this town[5], time to move to the next one";
+                    InBetweenLevels.Text = "With Peaches help, the town has been thriving.  The town has been able to grow.";
                     InBetweenLevels.Visible = true;
                     break;
                 case 10:
-                    InBetweenLevels.Text = "Peaches has successfully defended this town[10], time to move to the next one";
+                    InBetweenLevels.Text = "Peaches has continued to defend the town and it continues to grow.  Hopefully they will be prosperous into the future.";
                     InBetweenLevels.Visible = true;
                     break;
                 case 15:
-                    InBetweenLevels.Text = "Peaches has successfully defended this town[15], time to move to the next one";
+                    InBetweenLevels.Text = "Peaches continues to amaze the townspeople, the town has gotten even larger since they came to defend it.";
                     InBetweenLevels.Visible = true;
                     break;
                 default:
@@ -311,8 +311,8 @@ namespace TowerDefense_TheRPG
         {
             // TODO: probably should be read from a resource text file
             storyLine = "Ok, you want a story line, here it is. Once upon a time, there was this village. ";
-            storyLine += "In this village we're towers. These were great times where towers could roam around, ";
-            storyLine += "free of their nature predator..... the balloon! One day, dark clouds appeared in the sky. ";
+            storyLine += "In this village were towers. These were great times where towers could roam around, ";
+            storyLine += "free of their natural predator..... the balloon! One day, dark clouds appeared in the sky. ";
             storyLine += "It looked like M Night Shamaleon was creating another movie. Then, something strange happened! ";
             storyLine += "Evil balloons started entering the village. 1 balloon, then 2 balloons, then several more. The towers became afraid. ";
             storyLine += "As everyone knows, if a balloon hits a tower and pops, the tower loses health (and it hurts the tower's feelings). ";
