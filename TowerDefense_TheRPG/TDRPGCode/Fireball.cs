@@ -35,9 +35,9 @@
       this.dirX = dirX;
       this.dirY = dirY;
       moveSpeed = 12;
-      string name = "arrow_right";
+      string name = "fireball_right";
       if (dirX < 0) {
-        name = "arrow_left";
+        name = "fireball_left";
       }
       ControlCharacter = new PictureBox() {
         BackgroundImage = ControlManager.ResMan.GetObject(name) as Bitmap,

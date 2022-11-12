@@ -42,6 +42,7 @@
             this.MagicLabel = new System.Windows.Forms.Label();
             this.SpeedLabel = new System.Windows.Forms.Label();
             this.InBetweenLevels = new System.Windows.Forms.Label();
+            this.tmrCooldown1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // lblStoryLine
@@ -222,6 +223,12 @@
             this.InBetweenLevels.TabIndex = 11;
             this.InBetweenLevels.Visible = false;
             // 
+            // tmrCooldown1
+            // 
+            this.tmrCooldown1.Enabled = true;
+            this.tmrCooldown1.Interval = 1000;
+            this.tmrCooldown1.Tick += new System.EventHandler(this.Cooldown1_Tick);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -273,5 +280,6 @@
         private Label MagicLabel;
         private Label SpeedLabel;
         private Label InBetweenLevels;
+        private System.Windows.Forms.Timer tmrCooldown1;
     }
 }
