@@ -104,7 +104,7 @@
             //tmrMoveAbillites
             //
             this.tmrMoveFireballs.Interval = 10;
-            this.tmrMoveFireballs.Tick += new System.EventHandler(this.tmrMoveFireballs_Tick);
+            //this.tmrMoveFireballs.Tick += new System.EventHandler(this.tmrMoveFireballs_Tick);
             // 
             // tmrSpawnArrows
             // 
@@ -246,7 +246,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tower Defense The RPG";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form2_KeyDown);
+            //this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form2_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.ResumeLayout(false);
             this.PerformLayout();

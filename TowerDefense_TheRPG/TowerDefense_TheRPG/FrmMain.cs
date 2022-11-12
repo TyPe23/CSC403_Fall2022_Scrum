@@ -476,7 +476,7 @@ namespace TowerDefense_TheRPG
                         if (enemy.CurHealth <= 0)
                         {
                             enemy.Hide();
-                            player.GainXP(enemy.XPGiven);
+                            //player.GainXP(enemy.XPGiven);
                         }
                         else
                         {
