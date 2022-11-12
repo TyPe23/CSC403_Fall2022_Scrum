@@ -454,6 +454,7 @@ namespace TowerDefense_TheRPG
                         enemy.TakeDamage(0.1f);
                         if (enemy.CurHealth <= 0)
                         {
+                            enemyLeft--;
                             enemy.Hide();
                         }
                         else
