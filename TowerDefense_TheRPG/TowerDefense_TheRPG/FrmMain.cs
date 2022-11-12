@@ -509,6 +509,15 @@ namespace TowerDefense_TheRPG
             arrows.Add(arrowRight);
             arrowLeft.ControlCharacter.BringToFront();
             arrowRight.ControlCharacter.BringToFront();
+            if (player.Magic > 1)
+            {
+                Arrow arrowUp = new Arrow(player.X, player.Y, 0, +1);
+                Arrow arrowDown = new Arrow(player.X, player.Y, 0, -1);
+                arrows.Add(arrowUp);
+                arrows.Add(arrowDown);
+                arrowUp.ControlCharacter.BringToFront();
+                arrowDown.ControlCharacter.BringToFront();
+            }
         }
         private void FireBall()
         {
