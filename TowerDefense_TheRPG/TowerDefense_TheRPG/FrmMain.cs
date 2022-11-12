@@ -502,7 +502,7 @@ namespace TowerDefense_TheRPG
             switch (keyCode)
             {
                 case Keys.Space:
-                    if (abil1)
+                    if (abil1 && player.Magic > 0)
                     {
                         FireArrows();
                         abil1 = false;
