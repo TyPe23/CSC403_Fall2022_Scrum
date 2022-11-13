@@ -113,6 +113,26 @@ namespace TowerDefense_TheRPG.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fireball_down_left {
+            get {
+                object obj = ResourceManager.GetObject("fireball_down_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fireball_down_right {
+            get {
+                object obj = ResourceManager.GetObject("fireball_down_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fireball_left {
             get {
                 object obj = ResourceManager.GetObject("fireball_left", resourceCulture);
@@ -136,6 +156,26 @@ namespace TowerDefense_TheRPG.Properties {
         internal static System.Drawing.Bitmap fireball_up {
             get {
                 object obj = ResourceManager.GetObject("fireball_up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fireball_up_left {
+            get {
+                object obj = ResourceManager.GetObject("fireball_up_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fireball_up_right {
+            get {
+                object obj = ResourceManager.GetObject("fireball_up_right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

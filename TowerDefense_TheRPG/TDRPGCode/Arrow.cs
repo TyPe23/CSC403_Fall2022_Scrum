@@ -36,19 +36,34 @@
       this.dirY = dirY;
       moveSpeed = 12;
       string name = "fireball_right";
-      if (dirX < 0) {
+      if (dirX == -1 && dirY == 0) {
         name = "fireball_left";
       }
-      else if(dirY < 0)
+      else if(dirX == 0 && dirY == 1)
       {
          name = "fireball_up";
       }
-      else if (dirY > 0)
+      else if (dirX == 0 && dirY == -1)
       {
          name = "fireball_down";
-       }
-            
-      ControlCharacter = new PictureBox() {
+      }
+      else if (dirX == 1 && dirY == 1)
+      {
+         name = "fireball_down_right";
+      }
+      else if (dirX == -1 && dirY == 1)
+      {
+         name = "fireball_down_left";
+      }
+      else if (dirX == 1 && dirY == -1)
+      {
+         name = "fireball_up_right";
+      }
+      else if (dirX == -1 && dirY == -1)
+      {
+         name = "fireball_up_left";
+      }
+            ControlCharacter = new PictureBox() {
         BackgroundImage = ControlManager.ResMan.GetObject(name) as Bitmap,
         BackgroundImageLayout = ImageLayout.Stretch,
         Width = 50,

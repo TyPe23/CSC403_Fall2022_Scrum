@@ -133,6 +133,12 @@
   <data name="fireball_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\fireball_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="fireball_down_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fireball_down_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fireball_down_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fireball_down_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="fireball_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fireball_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -141,6 +147,12 @@
   </data>
   <data name="fireball_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\fireball_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fireball_up_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fireball_up_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fireball_up_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fireball_up_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="gameover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\data\gameover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
