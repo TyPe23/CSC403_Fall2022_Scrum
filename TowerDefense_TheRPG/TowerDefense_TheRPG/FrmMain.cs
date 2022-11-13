@@ -245,6 +245,14 @@ namespace TowerDefense_TheRPG
             AttackLabel.Text = "Attack: " + player.Attack;
             MagicLabel.Text = "Magic: " + player.Magic;
             SpeedLabel.Text = "Speed: " + player.MoveSpeed;
+            
+            
+            score.Text = "Level: " + (currlevel + 1);
+            score.Text += "          Attack: " + player.Attack;
+            score.Text += "          Magic: " + player.Magic;
+            score.Text += "          Movement Speed: " + player.MoveSpeed;
+
+
 
             btnAddAttack.Visible = true;
             btnAddMagic.Visible = true;
@@ -263,7 +271,7 @@ namespace TowerDefense_TheRPG
             btnNextLevel.Enabled = true;
             ShowStory();
 
-
+            score.Visible = true;
         }
         private void HideSPMenu()
         {
