@@ -526,7 +526,7 @@ namespace TowerDefense_TheRPG
                 arrowUp.ControlCharacter.BringToFront();
                 arrowDown.ControlCharacter.BringToFront();
             }
-            if (player.Magic > 0)
+            if (player.Magic > 4)
             {
                 Arrow arrowUpRight = new Arrow(player.X, player.Y, +1, +1);
                 Arrow arrowUpLeft = new Arrow(player.X, player.Y, -1, +1);
