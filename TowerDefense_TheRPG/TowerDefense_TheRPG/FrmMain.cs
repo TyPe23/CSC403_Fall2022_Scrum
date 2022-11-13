@@ -459,7 +459,7 @@ namespace TowerDefense_TheRPG
                 {
                     if (arrow.DidCollide(enemy))
                     {
-                        enemy.TakeDamage(0.1f * player.Magic);
+                        enemy.TakeDamage(0.1f + (0.1f * player.Magic));
                         if (enemy.CurHealth <= 0)
                         {
                             enemyLeft--;
