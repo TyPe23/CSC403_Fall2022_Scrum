@@ -598,7 +598,7 @@ namespace TowerDefense_TheRPG
         private void Level()
         {
             currlevel++;
-            enemyMax = 5 * currlevel;
+            enemyMax = 3 * currlevel;
             enemyCount = 0;
             enemyLeft = 0;
 
