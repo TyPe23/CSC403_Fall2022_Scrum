@@ -63,7 +63,7 @@ namespace TowerDefense_TheRPG
         private void tmrSpawnEnemies_Tick(object sender, EventArgs e)
         {
 
-            if (enemyCount < enemyMax && enemyTime < 200) // max per level 
+            if (enemyCount < enemyMax && enemyTime < 225) // max per level 
             {
 
                 GenEnemyPos(out int x, out int y);
@@ -459,7 +459,7 @@ namespace TowerDefense_TheRPG
                 {
                     if (arrow.DidCollide(enemy))
                     {
-                        enemy.TakeDamage(0.1f + (0.1f * player.Magic));
+                        enemy.TakeDamage(0.05f + (0.1f * player.Magic));
                         if (enemy.CurHealth <= 0)
                         {
                             enemyLeft--;
