@@ -78,7 +78,7 @@
             // 
             // tmrSpawnEnemies
             // 
-            this.tmrSpawnEnemies.Interval = 300;
+            this.tmrSpawnEnemies.Interval = 1000;
             this.tmrSpawnEnemies.Tick += new System.EventHandler(this.tmrSpawnEnemies_Tick);
             // 
             // tmrMoveEnemies
