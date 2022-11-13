@@ -636,7 +636,7 @@ namespace TowerDefense_TheRPG
         {
             if (abil1 == false)
             {
-                if (cooldownTime > (100 - (player.Magic * 10)))
+                if (cooldownTime > (100 - (player.Magic * 15)))
                 {
                     abil1 = true;
                     cooldownTime = 0;
