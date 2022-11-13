@@ -37,7 +37,7 @@
         {
             SetMaxHealth(1.0f);
             Magic = 0;
-            Attack = 0.15f;
+            Attack = 0.25f;
             MoveSpeed = 15;
             Level = 1;
             SkillPoints = 1;
