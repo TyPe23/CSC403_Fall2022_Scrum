@@ -43,6 +43,7 @@
             this.SpeedLabel = new System.Windows.Forms.Label();
             this.InBetweenLevels = new System.Windows.Forms.Label();
             this.tmrCooldown1 = new System.Windows.Forms.Timer(this.components);
+            this.score = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblStoryLine
@@ -228,6 +229,17 @@
             this.tmrCooldown1.Interval = 1000;
             this.tmrCooldown1.Tick += new System.EventHandler(this.Cooldown1_Tick);
             // 
+            // score
+            // 
+            this.score.BackColor = System.Drawing.Color.Transparent;
+            this.score.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.score.Location = new System.Drawing.Point(89, 26);
+            this.score.Name = "score";
+            this.score.Size = new System.Drawing.Size(1036, 25);
+            this.score.TabIndex = 12;
+            this.score.Visible = false;
+            this.score.SendToBack();
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -236,6 +248,7 @@
             this.BackgroundImage = global::TowerDefense_TheRPG.Properties.Resources.title;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1149, 726);
+            this.Controls.Add(this.score);
             this.Controls.Add(this.InBetweenLevels);
             this.Controls.Add(this.SpeedLabel);
             this.Controls.Add(this.MagicLabel);
@@ -279,5 +292,6 @@
         private Label SpeedLabel;
         private Label InBetweenLevels;
         private System.Windows.Forms.Timer tmrCooldown1;
+        private Label score;
     }
 }
