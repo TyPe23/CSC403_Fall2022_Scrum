@@ -44,6 +44,7 @@
             this.InBetweenLevels = new System.Windows.Forms.Label();
             this.tmrCooldown1 = new System.Windows.Forms.Timer(this.components);
             this.score = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // lblStoryLine
@@ -226,7 +227,7 @@
             // tmrCooldown1
             // 
             this.tmrCooldown1.Enabled = true;
-            this.tmrCooldown1.Interval = 1000;
+            this.tmrCooldown1.Interval = 50;
             this.tmrCooldown1.Tick += new System.EventHandler(this.Cooldown1_Tick);
             // 
             // score
@@ -238,7 +239,10 @@
             this.score.Size = new System.Drawing.Size(1036, 25);
             this.score.TabIndex = 12;
             this.score.Visible = false;
-            this.score.SendToBack();
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
             // 
             // FrmMain
             // 
@@ -293,5 +297,6 @@
         private Label InBetweenLevels;
         private System.Windows.Forms.Timer tmrCooldown1;
         private Label score;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -563,10 +563,11 @@ namespace TowerDefense_TheRPG
             switch (keyCode)
             {
                 case Keys.Space:
-                    if (abil1 && player.Magic > 0)
+                    if (abil1)
                     {
                         FireArrows();
                         abil1 = false;
+                        
                     }
                     
                     break;
@@ -635,7 +636,7 @@ namespace TowerDefense_TheRPG
         {
             if (abil1 == false)
             {
-                if (cooldownTime > 1)
+                if (cooldownTime > (100 - (player.Magic * 10)))
                 {
                     abil1 = true;
                     cooldownTime = 0;
