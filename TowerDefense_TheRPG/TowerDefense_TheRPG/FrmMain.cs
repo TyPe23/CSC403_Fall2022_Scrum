@@ -245,7 +245,7 @@ namespace TowerDefense_TheRPG
         private void ShowSPMenu()
         {
             
-            AttackLabel.Text = "Attack: " + player.Attack;
+            AttackLabel.Text = "Attack: " + Convert.ToInt16(100 * player.Attack);
             MagicLabel.Text = "Magic: " + player.Magic;
             SpeedLabel.Text = "Speed: " + player.MoveSpeed;
             
@@ -315,7 +315,7 @@ namespace TowerDefense_TheRPG
 
         private void Scoreboard() {
             score.Text = "Level: " + (currlevel);
-            score.Text += "          Attack: " + player.Attack;
+            score.Text += "          Attack: " + Convert.ToInt16(100 * player.Attack);
             score.Text += "          Magic: " + player.Magic;
             score.Text += "          Movement Speed: " + player.MoveSpeed;
         }
