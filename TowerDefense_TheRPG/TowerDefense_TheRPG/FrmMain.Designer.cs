@@ -233,7 +233,7 @@
             // score
             // 
             this.score.BackColor = System.Drawing.Color.Transparent;
-            this.score.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.score.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.score.Location = new System.Drawing.Point(89, 26);
             this.score.Name = "score";
             this.score.Size = new System.Drawing.Size(1036, 25);
