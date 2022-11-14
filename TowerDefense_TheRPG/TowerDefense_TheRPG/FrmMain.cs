@@ -175,6 +175,9 @@ namespace TowerDefense_TheRPG
             tmrMoveFireballs.Enabled = true;
             tmrTextCrawl.Enabled = false;
             tmrMovePlayer.Enabled = true;
+            score.Visible = true;
+            Scoreboard();
+
 
 
             // TODO: setting the background image here causes visual defects as enemies and player move
@@ -246,13 +249,6 @@ namespace TowerDefense_TheRPG
             MagicLabel.Text = "Magic: " + player.Magic;
             SpeedLabel.Text = "Speed: " + player.MoveSpeed;
             
-            
-            score.Text = "Level: " + (currlevel + 1);
-            score.Text += "          Attack: " + player.Attack;
-            score.Text += "          Magic: " + player.Magic;
-            score.Text += "          Movement Speed: " + player.MoveSpeed;
-
-
 
             btnAddAttack.Visible = true;
             btnAddMagic.Visible = true;
@@ -270,8 +266,8 @@ namespace TowerDefense_TheRPG
 
             btnNextLevel.Enabled = true;
             ShowStory();
+            //Scoreboard();
 
-            score.Visible = true;
         }
         private void HideSPMenu()
         {
@@ -291,6 +287,7 @@ namespace TowerDefense_TheRPG
 
             btnNextLevel.Enabled = false;
             InBetweenLevels.Visible = false;
+            Scoreboard();
         }
 
         private void ShowStory() {
@@ -311,9 +308,16 @@ namespace TowerDefense_TheRPG
                 default:
                     break;
 
-
             }
 
+        }
+
+
+        private void Scoreboard() {
+            score.Text = "Level: " + (currlevel);
+            score.Text += "          Attack: " + player.Attack;
+            score.Text += "          Magic: " + player.Magic;
+            score.Text += "          Movement Speed: " + player.MoveSpeed;
         }
         private void Storyline()
         {
